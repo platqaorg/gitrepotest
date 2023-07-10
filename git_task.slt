@@ -16,7 +16,7 @@
         },
         "pipeline_parameters": {},
         "pipeline_path": "git_pipeline",
-        "snaplex_path": "Cloud"
+        "snaplex_path": null
     },
     "schedule": {},
     "trigger": {},
