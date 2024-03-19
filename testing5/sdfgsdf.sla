@@ -1,0 +1,49 @@
+{
+    "class_id": "com-snaplogic-snaps-coupa-oauth2account",
+    "class_version": 1,
+    "migration_metadata": {
+        "source_org": "automation"
+    },
+    "property_map": {
+        "info": {
+            "label": {
+                "value": "sdfgsdf"
+            },
+            "notes": {
+                "value": null
+            }
+        },
+        "settings": {
+            "auth_endpoint": {
+                "expression": false,
+                "value": null
+            },
+            "auth_endpoint_config": {
+                "value": []
+            },
+            "autoRefreshToken": {
+                "value": false
+            },
+            "client_id": {
+                "value": "sfgdsgfdf"
+            },
+            "grant_type": {
+                "value": "client_credentials"
+            },
+            "host": {
+                "value": "gsdgffsdgff"
+            },
+            "pkce": {
+                "value": false
+            },
+            "token_endpoint": {
+                "expression": false,
+                "value": "sdfgdsfg"
+            },
+            "token_endpoint_config": {
+                "value": []
+            }
+        },
+        "view_serial": 100
+    }
+}

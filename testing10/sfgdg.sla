@@ -1,0 +1,51 @@
+{
+    "class_id": "com-snaplogic-snaps-anaplan-anaplanaccount",
+    "class_version": 1,
+    "migration_metadata": {
+        "source_org": "automation"
+    },
+    "property_map": {
+        "info": {
+            "label": {
+                "value": "sfgdg"
+            },
+            "notes": {
+                "value": null
+            }
+        },
+        "settings": {
+            "Hostname": {
+                "value": "https://api.anaplan.com"
+            },
+            "externalCertificateContents": {
+                "fp": "784a35a7d774c15fed2c19acfbacf0803952c866c106c7c1d7e70a06f0418532",
+                "key": "account-cloud-managed-5806521b242e3f794b90c16c-2016-10-18T16:49:09-913501",
+                "sym_iv": "/h7Ia1oag3s+tqayplI3VQ==",
+                "sym_key": "RtzYh7UqA+jp+DZMRHOYRxpMgK0SH3aNHkJ75Zx6OcqU3Lh5j35Gmw36BNEx/AzFBGZ3PpJpC6Vj7T5RdRM82dOgJ0ThooT20TVN9FG9jTlI3hImVjKkv2aZgbHXJA3BXYFiyZ5+dyVYHtWPTczcQ7CJ5HeZc0FGwbj/bQi6pQ4Xaz62JBJf0ykhVN+cG0Step0Gm+4w/aSBm1DkOC0THAowytj/GVbJtd2WqIC3axZIfjG4yWUzplJckct0ST/Nznax2ORn9be5IRxN6iyNPQNj9AwRVz7xu9//wnnkDmCuVMKHgnezC+QDmfpB8QmUS+vyqg9zYbaJNV/L0guyDg==",
+                "value": "cRBSorA63nXgd+rG50J8FQ=="
+            },
+            "externalCertificateFile": {
+                "expression": false,
+                "value": null
+            },
+            "externalPrivateKey": {
+                "fp": "784a35a7d774c15fed2c19acfbacf0803952c866c106c7c1d7e70a06f0418532",
+                "key": "account-cloud-managed-5806521b242e3f794b90c16c-2016-10-18T16:49:09-913501",
+                "sym_iv": "Ut43YQ4fRJj/llUkND240A==",
+                "sym_key": "iWN5+0zhXEe3+6YVa5PEqdcVpXlVoybWyklkHsniVrGb/rd7M8dyQU6KRsASPLZ2EkET5jR2U6+Hk1uw2EeKvbH9PCI2kkXg+8rrwtjJxLDV6mC5y4MojAy392KTkHJS8Lafos9IJSkak87+BK7EnSS/DZ6qXAab3/KmdcELPS0VQ1SK3lGfG3fYhW3zCIOnoR8PpQBxuimHepJjwT0I/YCoRsJ8+p9QTvuguM3dYssp3LtEVXATaPIt1qU8mjrNoheKAsRMld6vekFm9ONdY9QD0e8diFNDs4u0Qi805+tKaoYWvjh+L/RtOy8ptSJsTf3VWll0lnNxUuh+7ZwM4A==",
+                "value": "sQ9B7Rj/ZmsjR8SwyXbxsg=="
+            },
+            "password": {
+                "fp": "784a35a7d774c15fed2c19acfbacf0803952c866c106c7c1d7e70a06f0418532",
+                "key": "account-cloud-managed-5806521b242e3f794b90c16c-2016-10-18T16:49:09-913501",
+                "sym_iv": "bcAsAS2JQ439o6xZC+EOGw==",
+                "sym_key": "NbdDJN6sD7ilXx7+qOcSlzJZo2t6IAhueVi0bUWBlesY6QZ3uXKr5O2ZofevbTAHBfJwudqzrdZHpYrF058imTRa3o5YZzY3L5I0XjrD6oXQO98kwSdXknWEPYVwh7TzstoLE9dE9MRCnu8P06sc+GIiZ8DF3kmSedFMjC2qp9gVkooGYy/usHfDK6EFKXCpZqK05Cxo/WjQ/9dD/kbFNIjMt6bwWZUgnJFbmz+t8Hu/Z/gDyjpK0hpt7iqaOKnhgZYJRF3HfLexN7j+DUHO8JszTbLjX/+JVFy7IU8fU6S7APMt80hVLPGRdk7Xp0FNrYR6aVczuSra0mZNOEbRgQ==",
+                "value": "HffBGjDgHCEVDnOO24SLvA=="
+            },
+            "username": {
+                "value": "dgfg"
+            }
+        },
+        "view_serial": 100
+    }
+}
