@@ -1,4 +1,7 @@
 {
+    "ai_map": {
+        "footprint": "H4sIAAAAAAAAA8srzckBAE/8yyUEAAAA"
+    },
     "class_id": "com-snaplogic-pipeline",
     "class_version": 9,
     "link_map": {},
