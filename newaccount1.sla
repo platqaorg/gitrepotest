@@ -1,0 +1,34 @@
+{
+    "class_id": "com-snaplogic-snaps-aws-emr-awsaccount",
+    "class_version": 1,
+    "migration_metadata": {
+        "source_org": "automation"
+    },
+    "property_map": {
+        "info": {
+            "label": {
+                "value": "newaccount1"
+            },
+            "notes": {
+                "value": null
+            }
+        },
+        "settings": {
+            "accessKey": {
+                "fp": "784a35a7d774c15fed2c19acfbacf0803952c866c106c7c1d7e70a06f0418532",
+                "key": "account-cloud-managed-5806521b242e3f794b90c16c-2016-10-18T16:49:09-913501",
+                "sym_iv": "MCgE6kEQ67a95FcR/02jNw==",
+                "sym_key": "BMLI7zo1oMYTMbx4W9f8mZv+ZQXpcoO/M9NyRKlvYPP/crJo9RYBBdWsjiAEIf+G7M0HjfSiDMT8NHmgoDnsC56Vt4DGInkdIhPkbOK0nrJE6sVtTQO3tcrOspdkFtBRTGxVeI3L7MPvC1KfYpI3DvvU/w8kD411CKE/ASPP2Wp6GDPsXrXYOEFuzTV3zFfh3WqGhResOPmN2t2uLfDWLpkz65DYXsuDYlBCrJx46G5G2wr1tKdsVC/ea+TCvLBEdbJZHZDP3if+CuJwmYJypraJG5lVQPm7UEv3vlIy9jyESfJgkOCLfZYOGuFBYAuHPSUe81NuowbiOtr1+ABYBQ==",
+                "value": "7On9EiTVsoyf5GgfyvJGDw=="
+            },
+            "secretAccessKey": {
+                "fp": "784a35a7d774c15fed2c19acfbacf0803952c866c106c7c1d7e70a06f0418532",
+                "key": "account-cloud-managed-5806521b242e3f794b90c16c-2016-10-18T16:49:09-913501",
+                "sym_iv": "+XMujcqvLSNuic7ILj/ndQ==",
+                "sym_key": "ReesuaTzkIRQHY218FGBGrnYNJsirxLDv3qRZfrfiO41dLsTtxo2QAxudlxd9JxMr4kt/c5iu2mhhcuCSu6QRI57PQ7D7/uJfS33HvEq6rai6h/NF7IXdSqz6HZXriH3vBAMamWS/465bel05nkrl+yoNGLDVi/SbpEfT4LW/I83oMN33loYQ+jyAI10ykDmIx3ZQgpw/EgF34o+k7cVFrvlvQXTZhapzagtzoy/NEOEs3eEwGBILgkfpbXoWe9V3HtrP5pauHDn6IzHGZdE4TNacVWjUKWxk/yKX6gtWq7t8H/6oCE6nCEb+/jeXxK3sOWChHyceuiokOVjM1xMJg==",
+                "value": "VZUUOrPzPI3MXgGGNBG9sA=="
+            }
+        },
+        "view_serial": 100
+    }
+}
