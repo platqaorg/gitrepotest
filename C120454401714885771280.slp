@@ -29,7 +29,7 @@
         },
         "info": {
             "author": {
-                "value": "nkumar@snaplogic.com"
+                "value": "autoregplatform+gitbasc2@gmail.com"
             },
             "label": {},
             "notes": {
@@ -65,7 +65,28 @@
                 "value": []
             },
             "param_table": {
-                "value": []
+                "value": [
+                    {
+                        "capture": {
+                            "value": true
+                        },
+                        "data_type": {
+                            "value": "string"
+                        },
+                        "description": {
+                            "value": null
+                        },
+                        "key": {
+                            "value": "key"
+                        },
+                        "required": {
+                            "value": false
+                        },
+                        "value": {
+                            "value": "value"
+                        }
+                    }
+                ]
             },
             "suspendable": {
                 "value": false
