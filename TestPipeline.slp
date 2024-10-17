@@ -42,9 +42,6 @@
             }
         },
         "settings": {
-            "cache_pipelines": {
-                "value": []
-            },
             "error_param_table": {
                 "value": []
             },
@@ -56,34 +53,7 @@
                 "value": []
             },
             "param_table": {
-                "value": [
-                    {
-                        "capture": {
-                            "value": false
-                        },
-                        "data_type": {
-                            "value": "string"
-                        },
-                        "description": {
-                            "value": null
-                        },
-                        "key": {
-                            "value": "test"
-                        },
-                        "required": {
-                            "value": false
-                        },
-                        "value": {
-                            "value": "test"
-                        }
-                    }
-                ]
-            },
-            "suspendable": {
-                "value": false
-            },
-            "test_pipeline": {
-                "value": false
+                "value": []
             }
         }
     },
