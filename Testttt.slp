@@ -42,6 +42,9 @@
             }
         },
         "settings": {
+            "cache_pipelines": {
+                "value": []
+            },
             "error_param_table": {
                 "value": []
             },
@@ -54,6 +57,12 @@
             },
             "param_table": {
                 "value": []
+            },
+            "suspendable": {
+                "value": false
+            },
+            "test_pipeline": {
+                "value": false
             }
         }
     },
