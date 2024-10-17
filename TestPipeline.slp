@@ -17,7 +17,7 @@
         },
         "info": {
             "author": {
-                "value": "pavanv+admin@snaplogic.com"
+                "value": "platformqa+gitadmin2@snaplogicdev.net"
             },
             "label": {},
             "notes": {
@@ -42,6 +42,9 @@
             }
         },
         "settings": {
+            "cache_pipelines": {
+                "value": []
+            },
             "error_param_table": {
                 "value": []
             },
@@ -53,7 +56,34 @@
                 "value": []
             },
             "param_table": {
-                "value": []
+                "value": [
+                    {
+                        "capture": {
+                            "value": false
+                        },
+                        "data_type": {
+                            "value": "string"
+                        },
+                        "description": {
+                            "value": null
+                        },
+                        "key": {
+                            "value": "key"
+                        },
+                        "required": {
+                            "value": false
+                        },
+                        "value": {
+                            "value": "key"
+                        }
+                    }
+                ]
+            },
+            "suspendable": {
+                "value": false
+            },
+            "test_pipeline": {
+                "value": false
             }
         }
     },
@@ -62,8 +92,8 @@
         "detail_map": {
             "11111111-1111-1111-1111-000000000000": {
                 "error": {},
-                "grid_x_int": 3,
-                "grid_y_int": 2,
+                "grid_x_int": 2,
+                "grid_y_int": 1,
                 "index": null,
                 "input": {},
                 "output": {},
@@ -74,8 +104,8 @@
             },
             "11111111-1111-1111-1111-000000000001": {
                 "error": {},
-                "grid_x_int": 4,
-                "grid_y_int": 2,
+                "grid_x_int": 3,
+                "grid_y_int": 1,
                 "index": 0,
                 "input": {},
                 "output": {},
