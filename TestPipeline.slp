@@ -24,7 +24,7 @@
             },
             "label": {},
             "notes": {
-                "value": null
+                "value": "test"
             },
             "pipeline_doc_uri": {
                 "value": null
@@ -74,8 +74,8 @@
         "detail_map": {
             "11111111-1111-1111-1111-000000000000": {
                 "error": {},
-                "grid_x_int": 2,
-                "grid_y_int": 1,
+                "grid_x_int": 1,
+                "grid_y_int": 2,
                 "input": {},
                 "output": {},
                 "rot_int": 0,
@@ -83,8 +83,8 @@
             },
             "11111111-1111-1111-1111-000000000001": {
                 "error": {},
-                "grid_x_int": 3,
-                "grid_y_int": 1,
+                "grid_x_int": 2,
+                "grid_y_int": 2,
                 "input": {},
                 "output": {},
                 "rot_int": 0,
