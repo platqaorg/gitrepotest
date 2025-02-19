@@ -1,4 +1,7 @@
 {
+    "ai_map": {
+        "footprint": "H4sIAAAAAAAAA8srzckBAE/8yyUEAAAA"
+    },
     "class_id": "com-snaplogic-pipeline",
     "class_version": 9,
     "link_map": {
@@ -17,7 +20,7 @@
         },
         "info": {
             "author": {
-                "value": "sbuddi+basic1@snaplogic.com"
+                "value": "platformqagit+gitbasic7@snaplogicdev.net"
             },
             "label": {},
             "notes": {
@@ -42,8 +45,27 @@
             }
         },
         "settings": {
+            "cache_pipelines": {
+                "value": []
+            },
+            "error_param_table": {
+                "value": []
+            },
+            "error_pipeline": {
+                "expression": false,
+                "value": null
+            },
+            "imports": {
+                "value": []
+            },
             "param_table": {
                 "value": []
+            },
+            "suspendable": {
+                "value": false
+            },
+            "test_pipeline": {
+                "value": false
             }
         }
     },
