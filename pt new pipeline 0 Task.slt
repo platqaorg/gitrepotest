@@ -1,0 +1,24 @@
+{
+    "job_class": "PipelineJob",
+    "job_name": "pt new pipeline 0 Task",
+    "note": "",
+    "parameters": {
+        "enabled": true,
+        "include_external_urls": true,
+        "job_type": "standard",
+        "notification": {
+            "slack_recipients": [
+                {
+                    "channel": [],
+                    "user": []
+                }
+            ]
+        },
+        "pipeline_parameters": {},
+        "pipeline_path": "pt new pipeline 0",
+        "snaplex_path": "DataplaneQA"
+    },
+    "schedule": {},
+    "trigger": {},
+    "trigger_type": "ScheduleTrigger"
+}
