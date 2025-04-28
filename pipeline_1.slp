@@ -519,5 +519,6 @@
                 "view_serial": 100
             }
         }
-    }
+    },
+    "target_runtime": "standard"
 }
