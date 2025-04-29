@@ -3,7 +3,7 @@
     "job_name": "git_task",
     "note": "",
     "parameters": {
-        "enabled": true,
+        "enabled": false,
         "include_external_urls": true,
         "job_type": "standard",
         "notification": {
