@@ -49,7 +49,28 @@
                 "value": []
             },
             "param_table": {
-                "value": []
+                "value": [
+                    {
+                        "capture": {
+                            "value": true
+                        },
+                        "data_type": {
+                            "value": "string"
+                        },
+                        "description": {
+                            "value": null
+                        },
+                        "key": {
+                            "value": "key"
+                        },
+                        "required": {
+                            "value": false
+                        },
+                        "value": {
+                            "value": "value"
+                        }
+                    }
+                ]
             },
             "suspendable": {
                 "value": false
@@ -64,8 +85,8 @@
         "detail_map": {
             "11111111-1111-1111-1111-000000000000": {
                 "error": {},
-                "grid_x_int": 5,
-                "grid_y_int": 3,
+                "grid_x_int": 3,
+                "grid_y_int": 1,
                 "index": null,
                 "input": {},
                 "output": {},
