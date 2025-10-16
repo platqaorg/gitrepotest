@@ -17,7 +17,7 @@
         },
         "info": {
             "author": {
-                "value": "sbuddi+basic1@snaplogic.com"
+                "value": "platformqa+git_basic2@snaplogicdev.net"
             },
             "label": {},
             "notes": {
@@ -42,8 +42,48 @@
             }
         },
         "settings": {
-            "param_table": {
+            "cache_pipelines": {
                 "value": []
+            },
+            "error_param_table": {
+                "value": []
+            },
+            "error_pipeline": {
+                "expression": false,
+                "value": null
+            },
+            "imports": {
+                "value": []
+            },
+            "param_table": {
+                "value": [
+                    {
+                        "capture": {
+                            "value": false
+                        },
+                        "data_type": {
+                            "value": "string"
+                        },
+                        "description": {
+                            "value": null
+                        },
+                        "key": {
+                            "value": "test"
+                        },
+                        "required": {
+                            "value": false
+                        },
+                        "value": {
+                            "value": "test"
+                        }
+                    }
+                ]
+            },
+            "suspendable": {
+                "value": false
+            },
+            "test_pipeline": {
+                "value": false
             }
         }
     },
