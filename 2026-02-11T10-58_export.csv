@@ -1,0 +1,33 @@
+﻿,Title,Automation Status,Pre conditions,Steps (Step),Steps (Expected Result),Type,Reference,QA Priority,Module,Owner,Release
+0,Verify Show/Hide password control availability,To be Automated,User is on Reset Password page,"1. Navigate to Reset Password page
+2. Observe the New password field
+3. Observe the Confirm password field","1. Both New password and Confirm password fields should have Show/Hide password toggle (eye icon)
+2. Toggle icon should be placed inside the input field and right-aligned
+3. Toggle should use standard eye/eye-off icon",UI,APP-776,High,,Pavan V,
+1,Verify default state of password fields,To be Automated,User is on Reset Password page,"1. Load the Reset Password page
+2. Enter password in New password field
+3. Enter password in Confirm password field","1. Both password fields should be in masked state by default
+2. Entered password should be hidden
+3. Password should be displayed as dots/asterisks",UI,APP-776,High,,Pavan V,
+2,Verify password visibility toggle functionality,To be Automated,User is on Reset Password page with passwords entered,"1. Click Show password toggle on New password field
+2. Click Hide password toggle
+3. Click Show password toggle on Confirm password field
+4. Click Hide password toggle","1. Password text should be revealed in plain text
+2. Password should be masked again
+3. Password text should be revealed in plain text
+4. Password should be masked again",UI,APP-776,High,,Pavan V,
+3,Verify toggle state persistence,To be Automated,User is on Reset Password page with passwords visible,"1. Show passwords using toggle
+2. Refresh the page
+3. Check password field states","1. Passwords should be visible
+2. Page should reload
+3. Password fields should be in masked state",UI,APP-776,Medium,,Pavan V,
+4,Verify accessibility requirements,To be Automated,User is on Reset Password page,"1. Tab through password fields and toggles
+2. Use screen reader
+3. Try keyboard controls","1. All elements should be keyboard accessible
+2. Screen reader should properly announce password fields and toggle states
+3. Toggle should work with keyboard controls",Accessibility,APP-776,High,,Pavan V,
+5,Verify toggle behavior with multiple password fields,To be Automated,User is on Reset Password page,"1. Show password in New password field
+2. Check Confirm password field state
+3. Hide password in New password field","1. Only New password field should show plain text
+2. Confirm password field should remain masked
+3. New password field should be masked again",UI,APP-776,Medium,,Pavan V,
