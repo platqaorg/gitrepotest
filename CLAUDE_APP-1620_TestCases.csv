@@ -1,0 +1,161 @@
+Title,Automation Status,Pre conditions,Steps (Step),Steps (Expected Result),Type,Reference,QA Priority,Module,Owner,Release
+"Verify ""show all children"" checkbox is removed from the Executions table",Not Automated,User is logged in to SnapLogic Manager and has permission to view executions,"1. Navigate to Manager > Analyze > Executions
+2. Look at the executions table toolbar / filter area
+3. Inspect the table options where the checkbox previously existed","1. Executions page loads successfully
+2. The ""show all children"" checkbox is NOT present anywhere on the page
+3. No leftover label, tooltip, or empty space remains where the checkbox used to be",Functional,APP-1620 / PR #5494,P1,Manager - Executions,QA Lead,4.45
+Verify Children tab appears only when the pipeline has child pipelines,Not Automated,At least one parent pipeline with child pipelines has executed; one standalone pipeline (no children) has executed,"1. Open Run Info pushout for the parent pipeline (with children)
+2. Observe the available tabs in the pushout
+3. Close pushout and open Run Info pushout for the standalone pipeline (no children)
+4. Observe the available tabs","1. Pushout opens for parent pipeline
+2. ""Children"" tab is visible alongside Statistics, Logs, etc.
+3. Pushout opens for the standalone pipeline
+4. ""Children"" tab is NOT shown; only the default tabs (Statistics, Logs, etc.) are visible",Functional,APP-1620 / PR #5494,P1,Run Info Pushout - Children Tab,QA Lead,4.45
+Verify Children tab lists all immediate child pipeline executions in a flat list,Not Automated,A parent pipeline with multiple direct children has finished execution,"1. Open Run Info pushout for the parent pipeline
+2. Click the ""Children"" tab
+3. Verify the list rendered","1. Pushout opens
+2. Children tab is selected and shows a flat list of child executions
+3. Every direct child of the parent is listed; the parent row itself is filtered out from the results",Functional,APP-1620 / PR #5494,P1,Run Info Pushout - Children Tab,QA Lead,4.45
+"Verify Children tab columns (Pipeline name, Status, Documents, etc.) populate correctly",Not Automated,Parent pipeline with children has run; children produced output documents,"1. Open Run Info pushout > Children tab for the parent pipeline
+2. Inspect each column for the listed children","1. Pipeline name (label) is populated for every row
+2. Status column shows correct execution state (Completed/Failed/Stopped/Running)
+3. Documents column shows the document count for each child
+4. All other configured columns render valid data (no blanks/undefined)",Functional,APP-1620 / PR #5494,P1,Run Info Pushout - Children Tab,QA Lead,4.45
+Verify sorting works on the Children tab columns,Not Automated,"Parent pipeline with multiple children of varying names, statuses, and document counts","1. Open Children tab
+2. Click on the Pipeline name column header
+3. Click again to reverse sort
+4. Repeat for Status and Documents columns","1. Tab opens
+2. Rows sort ascending by pipeline name
+3. Rows sort descending by pipeline name
+4. Status and Documents columns sort correctly in both directions; sort indicator is visible on the active column",Functional,APP-1620 / PR #5494,P2,Run Info Pushout - Children Tab,QA Lead,4.45
+Verify filtering by pipeline name on the Children tab,Not Automated,Parent pipeline with at least 5 children with distinct names,"1. Open Children tab
+2. Enter a partial pipeline name in the filter input
+3. Clear the filter","1. Children tab loads
+2. List narrows to rows whose pipeline name matches the substring (case-insensitive)
+3. Full list is restored when filter is cleared",Functional,APP-1620 / PR #5494,P1,Run Info Pushout - Children Tab,QA Lead,4.45
+Verify filtering by Status on the Children tab,Not Automated,"Parent pipeline with children in mixed statuses (Completed, Failed, Stopped)","1. Open Children tab
+2. Apply Status filter = Completed
+3. Apply Status filter = Failed
+4. Clear filter","1. Tab opens
+2. Only Completed children are listed
+3. Only Failed children are listed
+4. All children re-appear when filter is cleared",Functional,APP-1620 / PR #5494,P1,Run Info Pushout - Children Tab,QA Lead,4.45
+Verify clicking a child row in the Children tab navigates the pushout to the child,Not Automated,Parent pipeline with at least one child execution,"1. Open Run Info pushout for parent
+2. Open Children tab
+3. Click on any child row","1. Pushout opens
+2. Children tab displays the children
+3. Pushout content updates to the selected child's Run Info; previous (parent) view is replaced; breadcrumb header now shows the parent as ancestor",Functional,APP-1620 / PR #5494,P1,Run Info Pushout - Navigation,QA Lead,4.45
+Verify breadcrumb is shown in the pushout header when viewing a child pipeline,Not Automated,Parent and child pipelines have executed,"1. Drill from parent pushout into child via Children tab
+2. Observe the pushout header","1. Pushout navigates to child
+2. Breadcrumb component is visible at the header showing the full hierarchy path (parent > child); current pipeline segment is shown but not styled as a clickable link",Functional,APP-1620 / PR #5494,P1,Run Info Pushout - Breadcrumb,QA Lead,4.45
+Verify each breadcrumb segment is clickable and navigates to that ancestor,Not Automated,3-level pipeline hierarchy (grandparent > parent > child) has executed,"1. Open child pipeline pushout (drill via Children tab from grandparent)
+2. Click on the parent crumb in the breadcrumb
+3. Click on the grandparent crumb","1. Child pushout shown with full breadcrumb (grandparent > parent > child)
+2. Pushout navigates to parent's Run Info; breadcrumb shortens accordingly
+3. Pushout navigates to grandparent's Run Info; breadcrumb shows only grandparent",Functional,APP-1620 / PR #5494,P1,Run Info Pushout - Breadcrumb,QA Lead,4.45
+Verify breadcrumb truncation for deeply nested hierarchies (more than 6 ancestors),Not Automated,A 7+ level deep pipeline hierarchy has executed,"1. Drill into the deepest descendant pipeline
+2. Observe breadcrumb in pushout header
+3. Hover/interact with the truncated ellipsis (…) if applicable","1. Pushout opens for deepest pipeline
+2. Breadcrumb shows first 3 ancestors + … (ellipsis) + last 3 ancestors only
+3. Truncated/hidden middle segments are accessible via tooltip or expansion (per design); first 3 and last 3 are clickable",Functional,APP-1620 / PR #5494,P2,Run Info Pushout - Breadcrumb,QA Lead,4.45
+Verify Statistics tab parent path is clickable and opens the parent in pushout,Not Automated,Child pipeline with a parent has executed,"1. Open Run Info pushout for the child pipeline directly from executions table
+2. Go to Statistics tab
+3. Locate the ""Parent"" / parent path field
+4. Click the parent path","1. Pushout opens on Statistics tab
+2. Statistics tab displays parent path
+3. Parent path is rendered as a clickable link (cursor pointer, link styling)
+4. Pushout navigates to the parent's Run Info; breadcrumb updates to reflect the new context",Functional,APP-1620 / PR #5494,P1,Run Info Pushout - Statistics Tab,QA Lead,4.45
+Verify parent path is NOT clickable on the Statistics tab when no parent exists,Not Automated,Top-level (no parent) pipeline has executed,"1. Open Run Info pushout for the top-level pipeline
+2. Go to Statistics tab
+3. Inspect parent path field","1. Pushout opens
+2. Statistics tab loads
+3. Parent path is empty / shows placeholder; no clickable link is rendered",Functional,APP-1620 / PR #5494,P2,Run Info Pushout - Statistics Tab,QA Lead,4.45
+Verify X (close) button closes the entire pushout stack and returns to executions table,Not Automated,User has drilled into a child via Children tab (pushout stack depth >= 2),"1. From parent pushout, click into a child via the Children tab
+2. From child pushout, click into a grandchild
+3. Click the X (close) button at the top of the pushout","1. Pushout shows child
+2. Pushout shows grandchild with full breadcrumb
+3. Entire pushout closes; user returns to the executions table; no residual pushout / overlay is visible",Functional,APP-1620 / PR #5494,P1,Run Info Pushout - Close Behavior,QA Lead,4.45
+Verify back chevron steps back exactly one level in the pushout stack,Not Automated,User has drilled into a grandchild via Children tab (stack depth >= 3),"1. From parent pushout, drill into child, then drill into grandchild
+2. Click the back chevron once
+3. Click the back chevron again","1. Grandchild pushout is shown
+2. Pushout returns to child Run Info; breadcrumb updates accordingly
+3. Pushout returns to parent Run Info",Functional,APP-1620 / PR #5494,P1,Run Info Pushout - Close Behavior,QA Lead,4.45
+Verify clicking a child row in the executions table (no search) shows correct breadcrumb,Not Automated,Parent + child pipelines exist in the executions table; no search filter applied,"1. Navigate to executions table
+2. Expand parent row to view child rows (or auto-expand)
+3. Click directly on the child row in the executions table (not via Children tab)","1. Executions table loads
+2. Child rows are visible under the parent
+3. Run Info pushout opens for child; breadcrumb correctly shows the ancestor chain (parent > child) built from parent_ruuid",Functional,APP-1620 / PR #5494,P1,Executions Table - Row Click,QA Lead,4.45
+Verify clicking a child row in executions table while searching shows correct breadcrumb,Not Automated,Deeply nested pipeline hierarchy exists,"1. In executions table, search for a deep child pipeline by name
+2. Placeholder row appears; click to expand
+3. Click the child row","1. Search filter applied
+2. Placeholder row expands and shows the matching child
+3. Pushout opens for the child with full breadcrumb of ancestors built from the loaded row data",Functional,APP-1620 / PR #5494,P1,Executions Table - Search,QA Lead,4.45
+Verify search in executions table does NOT trigger excessive subrow API calls,Not Automated,Executions table has hundreds of rows including many nested pipelines,"1. Open browser DevTools > Network tab
+2. Filter network calls to runtime/subrow API
+3. Type a search query in the executions table search box
+4. Wait for results to render","1. Network monitoring active
+2. Filter applied
+3. Search executes
+4. Subrow API calls are limited to rows matching hitProperty / nestedPipelineProperty; no spike of 50+ unrelated subrow fetches occurs",Performance,APP-1620 / PR #5494,P1,Executions Table - Performance,QA Lead,4.45
+Verify expanded rows reset when search query changes,Not Automated,Executions table loaded; user has expanded several parent rows,"1. Expand 3 parent rows in the executions table
+2. Type a search query
+3. Clear the search query","1. Rows are expanded
+2. Search runs; previously expanded state is reset (stale expansions cleared); only relevant matches are auto-expanded
+3. Table returns to default state without orphaned expanded rows",Functional,APP-1620 / PR #5494,P2,Executions Table - Search,QA Lead,4.45
+Verify Time Started / Time Completed buttons open Logs tab (not Children tab) for nested pipelines,Not Automated,Nested (child) pipeline has executed,"1. In executions table, locate a nested pipeline row
+2. Click the Time Started value
+3. Close pushout, then click Time Completed value on the same row","1. Row is visible
+2. Run Info pushout opens directly on the Logs tab (not Children tab)
+3. Run Info pushout opens directly on the Logs tab; tab index is correctly shifted to account for the inserted Children tab",Functional,APP-1620 / PR #5494,P1,Run Info Pushout - Tab Routing,QA Lead,4.45
+Verify Children tab is NOT shown for non-nested pipelines and tab routing remains unchanged,Not Automated,Standalone pipeline (no children) has executed,"1. Click the Time Started value of the standalone pipeline row
+2. Click the Time Completed value","1. Pushout opens directly on Logs tab; Children tab is absent; tab indexes are not shifted
+2. Same behavior — Logs tab is shown directly",Functional,APP-1620 / PR #5494,P2,Run Info Pushout - Tab Routing,QA Lead,4.45
+Verify loading state is shown while navigating between pipelines in the pushout,Not Automated,Multi-level pipeline hierarchy with appreciable load latency,"1. Open parent pushout
+2. Click into a child via Children tab
+3. Click a breadcrumb to navigate back to parent","1. Pushout loads
+2. Loading indicator/spinner is visible while child Run Info is being fetched; UI is not blank/broken
+3. Loading indicator is shown briefly while parent re-loads",Functional,APP-1620 / PR #5494,P2,Run Info Pushout - Loading,QA Lead,4.45
+Verify breadcrumb behavior is consistent when navigating Children tab → drill in → back,Not Automated,3-level hierarchy: A (grandparent) > B (parent) > C (child),"1. Open A's Run Info > Children tab
+2. Click B → opens B with breadcrumb A > B
+3. Click B's Children tab > click C → opens C with breadcrumb A > B > C
+4. Click A in breadcrumb","1. A's Children tab shows B
+2. Pushout shows B with crumb A > B
+3. Pushout shows C with crumb A > B > C
+4. Pushout returns to A; breadcrumb collapses to just A; Children tab is selectable again",Functional,APP-1620 / PR #5494,P1,Run Info Pushout - Navigation,QA Lead,4.45
+Verify executions and infrastructure filter states are preserved when navigating across pushouts (regression),Not Automated,"Filters applied on executions table (e.g., date range, status, project)","1. Apply 2-3 filters on the executions table
+2. Open a Run Info pushout, drill into Children tab → child → breadcrumb back to parent
+3. Close pushout","1. Filters applied
+2. Pushout navigation works without resetting filters
+3. Filters remain applied on the executions table after pushout closes",Regression,APP-1620 / PR #5494,P2,Executions Table - Filters,QA Lead,4.45
+Verify pushout closes only itself on unmount and does not close unrelated panels (regression),Not Automated,"Multiple side panels can be opened (e.g., Run Info pushout + another panel)","1. Open a non-runInfo side panel
+2. Open Run Info pushout for an execution
+3. Navigate away (e.g., switch route or close Run Info)","1. Other panel is open
+2. Both panels visible
+3. Only the Run Info pushout closes; the unrelated panel remains open",Regression,APP-1620 / PR #5494,P2,Run Info Pushout - Panel Lifecycle,QA Lead,4.45
+Verify pushout works for a pipeline with a very large number of children (scalability),Not Automated,Parent pipeline with 100+ child executions exists,"1. Open Run Info pushout for the parent pipeline
+2. Open Children tab
+3. Scroll through the children list
+4. Apply a filter / sort","1. Pushout opens
+2. Children tab loads without freezing the UI
+3. Scroll/virtualization works smoothly; document count and status render correctly
+4. Sort and filter perform within acceptable response time (<2s)",Performance,APP-1620 / PR #5494,P2,Run Info Pushout - Children Tab,QA Lead,4.45
+Verify breadcrumb displays correctly when navigating directly to a deeply nested pipeline via URL/deep-link,Not Automated,Deeply nested pipeline (4+ levels),"1. Copy a deep-link to a child pipeline's Run Info pushout
+2. Open the URL in a new browser tab","1. URL copied
+2. Pushout opens directly on the deep child; full ancestor breadcrumb is rendered correctly with all crumbs clickable",Functional,APP-1620 / PR #5494,P2,Run Info Pushout - Breadcrumb,QA Lead,4.45
+Verify Children tab is hidden when child pipelines list becomes empty after a filter clears all rows,Not Automated,Parent with multiple children,"1. Open Run Info > Children tab for parent
+2. Apply a pipeline-name filter that matches no children","1. Children tab loads with all children
+2. Children tab remains selected; an ""empty results"" message is displayed within the tab (tab itself is NOT removed since the pipeline still has children — only the filtered view is empty)",Functional,APP-1620 / PR #5494,P3,Run Info Pushout - Children Tab,QA Lead,4.45
+Verify keyboard accessibility on breadcrumb and Children tab,Not Automated,User uses keyboard navigation (Tab/Enter),"1. Open pushout with breadcrumb
+2. Tab through breadcrumb segments
+3. Press Enter on a focused crumb
+4. Tab into Children tab list and press Enter on a row","1. Pushout opens
+2. Each crumb is focusable; visible focus ring rendered
+3. Pushout navigates to that ancestor
+4. Child row activates and pushout navigates to the child",Accessibility,APP-1620 / PR #5494,P3,Run Info Pushout - Accessibility,QA Lead,4.45
+Verify Children tab persists/restores correctly when pushout is reopened on the same execution,Not Automated,Parent pipeline with children,"1. Open Run Info > Children tab for the parent
+2. Apply a filter
+3. Close the pushout (X)
+4. Reopen the same parent's Run Info","1. Tab opens
+2. Filter applied
+3. Pushout closes
+4. Pushout reopens on the default tab (Statistics or last tab per existing convention); Children tab filter state is reset to default (or restored consistently with other tabs)",Functional,APP-1620 / PR #5494,P3,Run Info Pushout - Children Tab,QA Lead,4.45
