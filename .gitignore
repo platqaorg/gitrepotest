@@ -1,0 +1,19 @@
+# Git ignore file for test assets                                                                                                                                    
+  # These assets should be ignored by Git version control                                                                                                              
+                                                                                                                                                                       
+  # SnapLogic Pipeline and Task files                                                                                                                                  
+  GitPL_Task                                                                                                                                                           
+  GitPL                                                                                                                                                                
+                                                                                                                                                                       
+  # Account files                                                                                                                                                      
+  BasicAcc                                                                                                                                                             
+                                                                                                                                                                       
+  # Documentation files                                                                                                                                              
+  README.md                                                                                                                                                            
+                                                                                                                                                                       
+  # API specification files                                                                                                                                            
+  advanced_oas2.json                                                                                                                                                   
+  swagger_oas2.yaml                                                                                                                                                    
+                                                                                                                                                                       
+  # Text files                                                                                                                                                         
+  TextFile.txt 
