@@ -1,14 +1,7 @@
 {
     "class_id": "com-snaplogic-pipeline",
     "class_version": 9,
-    "link_map": {
-        "link100": {
-            "dst_id": "11111111-1111-1111-1111-000000000001",
-            "dst_view_id": "input0",
-            "src_id": "11111111-1111-1111-1111-000000000000",
-            "src_view_id": "output0"
-        }
-    },
+    "link_map": {},
     "property_map": {
         "error": {
             "error_behavior": {
@@ -17,7 +10,7 @@
         },
         "info": {
             "author": {
-                "value": "platformqa+git_basic3@snaplogicdev.net"
+                "value": "hshaik@snaplogic.com"
             },
             "label": {},
             "notes": {
@@ -32,9 +25,9 @@
         },
         "input": {},
         "output": {
-            "11111111-1111-1111-1111-000000000001_output0": {
+            "11111111-1111-1111-1111-000000000000_output0": {
                 "label": {
-                    "value": "Pipeline Execute - output0"
+                    "value": "JSON Generator - output0"
                 },
                 "view_type": {
                     "value": "document"
@@ -42,9 +35,6 @@
             }
         },
         "settings": {
-            "cache_pipelines": {
-                "value": []
-            },
             "error_param_table": {
                 "value": []
             },
@@ -56,37 +46,7 @@
                 "value": []
             },
             "param_table": {
-                "value": [
-                    {
-                        "capture": {
-                            "value": false
-                        },
-                        "data_type": {
-                            "value": "string"
-                        },
-                        "description": {
-                            "value": null
-                        },
-                        "key": {
-                            "value": "test"
-                        },
-                        "required": {
-                            "value": false
-                        },
-                        "value": {
-                            "value": "test"
-                        }
-                    }
-                ]
-            },
-            "suspendable": {
-                "value": false
-            },
-            "tags": {
                 "value": []
-            },
-            "test_pipeline": {
-                "value": false
             }
         }
     },
@@ -95,16 +55,7 @@
         "detail_map": {
             "11111111-1111-1111-1111-000000000000": {
                 "error": {},
-                "grid_x_int": 2,
-                "grid_y_int": 1,
-                "input": {},
-                "output": {},
-                "rot_int": 0,
-                "rot_tail_int": 0
-            },
-            "11111111-1111-1111-1111-000000000001": {
-                "error": {},
-                "grid_x_int": 3,
+                "grid_x_int": 4,
                 "grid_y_int": 1,
                 "input": {},
                 "output": {},
@@ -118,8 +69,8 @@
     },
     "snap_map": {
         "11111111-1111-1111-1111-000000000000": {
-            "class_id": "com-snaplogic-snaps-transform-csvgenerator",
-            "class_version": 1,
+            "class_id": "com-snaplogic-snaps-transform-jsongenerator",
+            "class_version": 2,
             "instance_id": "11111111-1111-1111-1111-000000000000",
             "property_map": {
                 "error": {
@@ -137,10 +88,7 @@
                 },
                 "info": {
                     "label": {
-                        "value": "CSV Generator"
-                    },
-                    "notes": {
-                        "value": null
+                        "value": "JSON Generator"
                     }
                 },
                 "output": {
@@ -154,83 +102,11 @@
                     }
                 },
                 "settings": {
+                    "arrayElementsAsDocuments": {
+                        "value": true
+                    },
                     "editable_content": {
-                        "value": "name,age,city\ngaian,7,Hyd\nSolutions,7,Vskp"
-                    }
-                },
-                "view_serial": 100
-            }
-        },
-        "11111111-1111-1111-1111-000000000001": {
-            "class_id": "com-snaplogic-snaps-flow-pipeexec",
-            "class_version": 1,
-            "instance_id": "11111111-1111-1111-1111-000000000001",
-            "property_map": {
-                "error": {
-                    "error0": {
-                        "label": {
-                            "value": "error0"
-                        },
-                        "view_type": {
-                            "value": "document"
-                        }
-                    },
-                    "error_behavior": {
-                        "value": "fail"
-                    }
-                },
-                "info": {
-                    "label": {
-                        "value": "Pipeline Execute"
-                    },
-                    "notes": {
-                        "value": null
-                    }
-                },
-                "input": {
-                    "input0": {
-                        "label": {
-                            "value": "input0"
-                        },
-                        "view_type": {
-                            "value": "document"
-                        }
-                    }
-                },
-                "output": {
-                    "output0": {
-                        "label": {
-                            "value": "output0"
-                        },
-                        "view_type": {
-                            "value": "document"
-                        }
-                    }
-                },
-                "settings": {
-                    "execLabel": {
-                        "expression": true,
-                        "value": "'test'"
-                    },
-                    "loopDocument": {
-                        "expression": true
-                    },
-                    "params": {
-                        "value": []
-                    },
-                    "pipeline": {
-                        "expression": false,
-                        "value": "ChildPipeline"
-                    },
-                    "poolSize": {
-                        "value": 1
-                    },
-                    "reuse": {
-                        "value": false
-                    },
-                    "snaplex": {
-                        "expression": false,
-                        "value": "DEV Groundplex"
+                        "value": "## Enter your JSON-encoded data in this space.  Note that this text is\n## treated as an Apache Velocity template, so you can substitute values\n## from input documents or the pipeline parameters.  See the following\n## URL for more information about Velocity:\n##   https://velocity.apache.org/engine/devel/user-guide.html\n\n[\n    {\n##        \"msg\" : \"Hello, World\", \"num\" : 1\n    }\n]\n\n\n## Tips:\n##  * The sample data above will generate a single empty document, uncomment\n##    the line in the middle to include the sample fields.  Adding more\n##    objects to the root array will cause the snap to generate more\n##    than one document.\n##  * Pipeline parameters can be referenced by prefixing the parameter\n##    name with an underscore, like so:\n##      ${_pipelineParamName}\n##  * If you add an input view to the snap, this template will be\n##    evaluated for each input document.\n##  * Fields in the input documents can be referenced by prefixing them\n##    with a dollar-sign ($), like so:\n##      $parent.child[0].value\n##  * Any referenced document values and pipeline parameters will\n##    automatically be JSON-encoded when they are inserted into the final\n##    JSON document.  You should not have to worry about escaping values\n##    yourself.\n##  * If you are having troubles getting a template to produce valid JSON,\n##    you can add an error view to the snap to get a document that\n##    contains the output of the template evaluation.\n"
                     }
                 },
                 "view_serial": 100
