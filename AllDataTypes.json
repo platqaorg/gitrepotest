@@ -1,0 +1,15 @@
+{
+  "stringValue": "qa-forge",
+  "numberValue": 42,
+  "booleanValue": true,
+  "nullValue": null,
+  "arrayValue": [
+    1,
+    "two",
+    false
+  ],
+  "objectValue": {
+    "nestedString": "value",
+    "nestedNumber": 3.14
+  }
+}
