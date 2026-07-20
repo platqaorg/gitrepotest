@@ -10,7 +10,7 @@
         },
         "info": {
             "author": {
-                "value": "platformqagit1+gitbasc1@snaplogicdev.net"
+                "value": "platformqagit1+gitbasc7@snaplogicdev.net"
             },
             "label": {},
             "notes": {
@@ -68,6 +68,26 @@
                         },
                         "value": {
                             "value": "conflict_1784576272931"
+                        }
+                    },
+                    {
+                        "capture": {
+                            "value": false
+                        },
+                        "data_type": {
+                            "value": "string"
+                        },
+                        "description": {
+                            "value": null
+                        },
+                        "key": {
+                            "value": "test"
+                        },
+                        "required": {
+                            "value": false
+                        },
+                        "value": {
+                            "value": "conflict_1784582357264"
                         }
                     }
                 ]
