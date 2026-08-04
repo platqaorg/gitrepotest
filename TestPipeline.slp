@@ -10,7 +10,7 @@
         },
         "info": {
             "author": {
-                "value": "hshaik@snaplogic.com"
+                "value": "platformqagit1+gitbasc6@snaplogicdev.net"
             },
             "label": {},
             "notes": {
@@ -35,6 +35,9 @@
             }
         },
         "settings": {
+            "cache_pipelines": {
+                "value": []
+            },
             "error_param_table": {
                 "value": []
             },
@@ -46,7 +49,37 @@
                 "value": []
             },
             "param_table": {
+                "value": [
+                    {
+                        "capture": {
+                            "value": false
+                        },
+                        "data_type": {
+                            "value": "string"
+                        },
+                        "description": {
+                            "value": null
+                        },
+                        "key": {
+                            "value": "test"
+                        },
+                        "required": {
+                            "value": false
+                        },
+                        "value": {
+                            "value": "test"
+                        }
+                    }
+                ]
+            },
+            "suspendable": {
+                "value": false
+            },
+            "tags": {
                 "value": []
+            },
+            "test_pipeline": {
+                "value": false
             }
         }
     },
@@ -63,6 +96,7 @@
                 "rot_tail_int": 0
             }
         },
+        "notes": {},
         "pan_x_num": 0,
         "pan_y_num": 0,
         "scale_ratio": 1
