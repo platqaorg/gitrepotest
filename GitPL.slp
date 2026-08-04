@@ -71,6 +71,7 @@
             }
         }
     },
+    "read_only": false,
     "render_map": {
         "default_snaplex": null,
         "detail_map": {
