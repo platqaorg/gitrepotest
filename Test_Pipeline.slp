@@ -10,7 +10,7 @@
         },
         "info": {
             "author": {
-                "value": "platformqagit1+gitadmn1@snaplogicdev.net"
+                "value": "pavanv@snaplogic.com"
             },
             "label": {},
             "notes": {
@@ -78,7 +78,17 @@
                 "source": "snap catagory"
             }
         },
-        "notes": {},
+        "notes": {
+            "c1f11cdf-14f5-4090-bd00-7f918e871bc4": {
+                "content": "Note 1",
+                "created": "2026-08-05T11:28:17.936Z",
+                "creator": "Pavan Admin",
+                "height": 120,
+                "width": 240,
+                "x": 10,
+                "y": 10
+            }
+        },
         "pan_x_num": 0,
         "pan_y_num": 0,
         "scale_ratio": 1
