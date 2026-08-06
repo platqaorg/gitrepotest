@@ -5,21 +5,18 @@
         "link101": {
             "dst_id": "11111111-1111-1111-1111-000000000002",
             "dst_view_id": "input0",
-            "isGoto": false,
             "src_id": "11111111-1111-1111-1111-000000000001",
             "src_view_id": "output0"
         },
         "link102": {
             "dst_id": "11111111-1111-1111-1111-000000000001",
             "dst_view_id": "input0",
-            "isGoto": false,
             "src_id": "11111111-1111-1111-1111-000000000000",
             "src_view_id": "output0"
         },
         "link103": {
             "dst_id": "11111111-1111-1111-1111-000000000003",
             "dst_view_id": "input0",
-            "isGoto": false,
             "src_id": "11111111-1111-1111-1111-000000000002",
             "src_view_id": "output0"
         }
@@ -78,6 +75,7 @@
             }
         }
     },
+    "read_only": false,
     "render_map": {
         "default_snaplex": null,
         "detail_map": {
