@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>System Design — A Beginner's Guide</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!-- Marked: markdown -> HTML -->
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<!-- Mermaid: render diagrams -->
+<script type="module">
+  import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
+  mermaid.initialize({ startOnLoad: false, theme: "default", securityLevel: "loose" });
+  window.__mermaid = mermaid;
+</script>
+<style>
+  :root {
+    --bg: #ffffff;
+    --fg: #1f2328;
+    --muted: #57606a;
+    --accent: #0969da;
+    --code-bg: #f6f8fa;
+    --border: #d0d7de;
+    --table-row: #f6f8fa;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0d1117;
+      --fg: #e6edf3;
+      --muted: #8d96a0;
+      --accent: #58a6ff;
+      --code-bg: #161b22;
+      --border: #30363d;
+      --table-row: #161b22;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    line-height: 1.65;
+  }
+  .layout { display: grid; grid-template-columns: 280px 1fr; min-height: 100vh; }
+  @media (max-width: 900px) { .layout { grid-template-columns: 1fr; } nav.toc { display:none; } }
+  nav.toc {
+    position: sticky;
+    top: 0;
+    align-self: start;
+    height: 100vh;
+    overflow-y: auto;
+    border-right: 1px solid var(--border);
+    padding: 24px 16px;
+    background: var(--bg);
+  }
+  nav.toc h2 { font-size: 14px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); margin: 0 0 12px; }
+  nav.toc ol { list-style: none; padding: 0; margin: 0; counter-reset: chap; }
+  nav.toc li { counter-increment: chap; margin: 6px 0; font-size: 14px; }
+  nav.toc li::before { content: counter(chap) ". "; color: var(--muted); }
+  nav.toc a { color: var(--fg); text-decoration: none; }
+  nav.toc a:hover { color: var(--accent); }
+  main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 32px 80px;
+  }
+  h1 { font-size: 2.2em; border-bottom: 2px solid var(--border); padding-bottom: 8px; }
+  h2 { font-size: 1.6em; margin-top: 2em; border-bottom: 1px solid var(--border); padding-bottom: 6px; }
+  h3 { font-size: 1.2em; margin-top: 1.6em; }
+  blockquote { border-left: 4px solid var(--accent); padding: 4px 16px; color: var(--muted); margin: 1em 0; background: var(--code-bg); }
+  code { background: var(--code-bg); padding: 2px 6px; border-radius: 4px; font-size: 0.92em; }
+  pre { background: var(--code-bg); padding: 14px; border-radius: 6px; overflow-x: auto; border: 1px solid var(--border); }
+  pre code { padding: 0; background: transparent; }
+  .mermaid { background: var(--bg); text-align: center; margin: 1.4em 0; padding: 12px; border: 1px solid var(--border); border-radius: 6px; }
+  table { border-collapse: collapse; width: 100%; margin: 1em 0; }
+  th, td { border: 1px solid var(--border); padding: 8px 12px; text-align: left; }
+  tr:nth-child(even) td { background: var(--table-row); }
+  a { color: var(--accent); }
+  hr { border: 0; border-top: 1px solid var(--border); margin: 2em 0; }
+  .badge { display: inline-block; padding: 2px 8px; font-size: 11px; border-radius: 10px; background: var(--accent); color: white; vertical-align: middle; margin-left: 6px; }
+  .controls { position: fixed; top: 16px; right: 16px; z-index: 100; }
+  .controls button { background: var(--code-bg); color: var(--fg); border: 1px solid var(--border); padding: 6px 12px; border-radius: 6px; cursor: pointer; font-size: 13px; }
+  .controls button:hover { border-color: var(--accent); }
+  @media print {
+    nav.toc, .controls { display: none; }
+    .layout { display: block; }
+    main { max-width: 100%; padding: 0; }
+  }
+</style>
+</head>
+<body>
+<div class="controls">
+  <button onclick="window.print()">Print / Save as PDF</button>
+</div>
+<div class="layout">
+  <nav class="toc" id="toc">
+    <h2>Contents</h2>
+    <ol id="toc-list"></ol>
+  </nav>
+  <main id="content">Loading…</main>
+</div>
+
+<script id="markdown-source" type="text/markdown">
+# System Design — A Beginner's Guide
+
+> A from-scratch tutorial. No prior knowledge assumed.
+> All diagrams render in your browser via **Mermaid** — no extensions or installs needed.
+> Press **Print / Save as PDF** (top-right) to export an offline copy.
+
+---
+
+## 1. What Is System Design?
+
+**System design** is the art of arranging software components — servers, databases, caches, queues — so that an application is **fast**, **reliable**, and **affordable** at the scale it needs to run.
+
+Coding answers: *"How do I make this function work?"*
+System design answers: *"How do I make this work for 10 million users at 3 a.m. when one data center is on fire?"*
+
+### Three things every system optimizes for
+
+| Goal | Question it answers |
+|---|---|
+| **Scalability** | Can it handle 10× more users without falling over? |
+| **Reliability** | Does it stay up when something breaks? |
+| **Performance** | Is it fast enough that users don't bounce? |
+
+You almost never get all three for free — you trade between them. That's the whole game.
+
+---
+
+## 2. The Mental Model: Client–Server
+
+The simplest possible system has two pieces: a **client** (your browser, app) asking for things, and a **server** answering.
+
+```mermaid
+flowchart LR
+    A[Client<br/>Browser / Mobile App] -- "1. Request: GET /home" --> B[Server]
+    B -- "2. Response: HTML / JSON" --> A
+```
+
+**That's it.** Every system you'll ever design is this picture, repeated and elaborated.
+
+---
+
+## 3. How Your Browser Reaches a Server (DNS, IP, HTTP)
+
+When you type `google.com`:
+
+```mermaid
+sequenceDiagram
+    participant U as You
+    participant B as Browser
+    participant D as DNS Server
+    participant S as Google's Server
+
+    U->>B: types "google.com"
+    B->>D: "What's the IP for google.com?"
+    D-->>B: "142.250.190.46"
+    B->>S: HTTP GET / (to 142.250.190.46)
+    S-->>B: HTML page
+    B-->>U: renders page
+```
+
+Key terms:
+- **IP address** — the numeric "street address" of a server.
+- **DNS** — phone book that converts `google.com` → IP.
+- **HTTP/HTTPS** — the language clients and servers speak. **HTTPS = HTTP encrypted**.
+- **Port** — a "door" on the server. Web traffic uses 80 (HTTP) or 443 (HTTPS).
+
+---
+
+## 4. Scaling — Vertical vs Horizontal
+
+What happens when one server isn't enough?
+
+### Vertical scaling (scale up)
+Buy a **bigger** server. More RAM, faster CPU.
+
+```mermaid
+flowchart LR
+    A[Small Server] -->|upgrade| B[BIG Server]
+```
+- 👍 Simple — no code changes.
+- 👎 Limited — eventually hit the biggest box you can buy.
+- 👎 Single point of failure.
+
+### Horizontal scaling (scale out)
+Buy **more** servers, each running the same code.
+
+```mermaid
+flowchart LR
+    LB[Distributor] --> S1[Server]
+    LB --> S2[Server]
+    LB --> S3[Server]
+```
+- 👍 Near-infinite scale.
+- 👍 If one server dies, others handle load.
+- 👎 Need a **load balancer** to distribute traffic.
+
+> **Rule of thumb:** Big tech almost always scales horizontally.
+
+---
+
+## 5. Load Balancers
+
+A **load balancer** sits in front of your servers and spreads traffic.
+
+```mermaid
+flowchart LR
+    C[Clients] --> LB[Load Balancer]
+    LB --> S1[Server 1]
+    LB --> S2[Server 2]
+    LB --> S3[Server 3]
+```
+
+| Strategy | How it works |
+|---|---|
+| **Round Robin** | Server 1, 2, 3, 1, 2, 3… |
+| **Least Connections** | Send to whichever server is least busy |
+| **IP Hash** | Same user always hits the same server |
+
+If a server crashes, the LB stops sending traffic to it (health checks).
+**Real-world examples:** AWS ELB, NGINX, HAProxy, Cloudflare.
+
+---
+
+## 6. Databases — SQL vs NoSQL
+
+Servers are stateless — they forget things on restart. Data lives in a **database**.
+
+### SQL (Relational) — PostgreSQL, MySQL
+Tables with rows and columns; tables relate via keys.
+
+```mermaid
+erDiagram
+    USERS ||--o{ ORDERS : places
+    USERS {
+      int id
+      string name
+    }
+    ORDERS {
+      int id
+      int user_id
+      decimal total
+    }
+```
+
+- 👍 Strong consistency, powerful queries (JOINs).
+- 👎 Hard to scale horizontally.
+- ✅ Use for: financial data, inventory.
+
+### NoSQL — MongoDB, Redis, Cassandra, DynamoDB
+
+| Type | Example | Looks like |
+|---|---|---|
+| **Document** | MongoDB | Folder of JSON files |
+| **Key–Value** | Redis | Giant dictionary `key → value` |
+| **Wide-column** | Cassandra | Sparse distributed table |
+| **Graph** | Neo4j | Nodes + edges (social) |
+
+- 👍 Easy to scale, flexible schema.
+- 👎 Weaker consistency.
+- ✅ Use for: posts, catalogs, sessions, logs.
+
+---
+
+## 7. Replication & Sharding
+
+### Replication — copies of the same data
+One **primary** (writes), many **replicas** (reads).
+
+```mermaid
+flowchart LR
+    W[App: writes] --> P[(Primary DB)]
+    P -- replicate --> R1[(Replica 1)]
+    P -- replicate --> R2[(Replica 2)]
+    Rd[App: reads] --> R1
+    Rd --> R2
+```
+
+### Sharding — splitting data
+Each shard owns a slice.
+
+```mermaid
+flowchart LR
+    APP[App] --> S1[(Shard 1<br/>users 1–1M)]
+    APP --> S2[(Shard 2<br/>users 1M–2M)]
+    APP --> S3[(Shard 3<br/>users 2M–3M)]
+```
+
+---
+
+## 8. Caching
+
+Fast, temporary storage for frequently-read data — usually RAM.
+
+```mermaid
+flowchart LR
+    A[App] -->|1. check cache| C[(Cache<br/>Redis)]
+    C -->|hit: return| A
+    A -->|miss: query| D[(Database)]
+    D --> A
+    A -->|write to cache| C
+```
+
+- **Hit** = found in cache → super fast (<1 ms)
+- **Miss** = fall back to DB, then cache result
+
+The hard parts: **invalidation** (cache goes stale) and **eviction** (LRU is most common).
+**Real-world:** Redis, Memcached.
+
+---
+
+## 9. Content Delivery Networks (CDN)
+
+A global network of caches close to users — for **static files** (images, JS, CSS, video).
+
+```mermaid
+flowchart LR
+    U1[User India] --> E1[Edge: Mumbai]
+    U2[User Brazil] --> E2[Edge: São Paulo]
+    U3[User Germany] --> E3[Edge: Frankfurt]
+    E1 -.miss.-> O[(Origin Server)]
+    E2 -.miss.-> O
+    E3 -.miss.-> O
+```
+
+**Real-world:** Cloudflare, Akamai, AWS CloudFront, Fastly.
+**Result:** 5–10× faster for users far from origin.
+
+---
+
+## 10. Message Queues & Async Processing
+
+Don't make the user wait for slow work.
+
+```mermaid
+flowchart LR
+    U[User uploads video] --> API[Web Server]
+    API -->|enqueue| Q[(Queue<br/>Kafka / RabbitMQ)]
+    API -->|instant: 'processing'| U
+    Q --> W1[Worker 1]
+    Q --> W2[Worker 2]
+    W1 --> S[(Storage)]
+    W2 --> S
+```
+
+- 👍 Instant user feedback, smooths spikes, loose coupling.
+- 👎 Retries, ordering, duplicates become your problem.
+
+**Real-world:** Kafka, RabbitMQ, AWS SQS.
+
+---
+
+## 11. Monolith vs Microservices
+
+### Monolith — one big app
+
+```mermaid
+flowchart LR
+    C[Client] --> M[Monolith<br/>auth + users + orders + search]
+    M --> DB[(Single DB)]
+```
+
+- 👍 Simple to build, deploy, debug.
+- 👎 Slow team velocity at scale.
+
+### Microservices — many small apps
+
+```mermaid
+flowchart LR
+    C[Client] --> GW[API Gateway]
+    GW --> AUTH[Auth Service]
+    GW --> USERS[Users Service]
+    GW --> ORDERS[Orders Service]
+    GW --> SEARCH[Search Service]
+    AUTH --> DBA[(Auth DB)]
+    USERS --> DBU[(Users DB)]
+    ORDERS --> DBO[(Orders DB)]
+    SEARCH --> DBS[(Search DB)]
+```
+
+- 👍 Independent deploys, scale only busy services.
+- 👎 Networking, observability, debugging across services is hard.
+
+> **Honest take:** Start as a monolith. Move to microservices only when team coordination — not technology — is the bottleneck.
+
+---
+
+## 12. The CAP Theorem
+
+In a distributed system, when there's a **network partition**, pick:
+- **C — Consistency** — every read sees the latest write
+- **A — Availability** — every request gets some answer
+- **P — Partition tolerance** — system survives network breaks
+
+P is mandatory in distributed systems → real choice is **C or A**.
+
+```mermaid
+flowchart TD
+    CAP[CAP Theorem]
+    CAP --> C[Consistency]
+    CAP --> A[Availability]
+    CAP --> P[Partition tolerance]
+    C --- AP_choice([Pick C+P: refuse if unsure<br/>Banks, MongoDB, HBase])
+    A --- AP_choice2([Pick A+P: always answer, may be stale<br/>Cassandra, DynamoDB])
+```
+
+> **Rule of thumb:** Money systems pick consistency. Social systems pick availability.
+
+---
+
+## 13. Putting It Together — Design Twitter
+
+### Requirements
+- Post short text "tweets"
+- Follow others
+- See timeline of followed users' tweets
+- Scale: 100M daily active users
+
+### Architecture
+
+```mermaid
+flowchart TB
+    U[Users<br/>Mobile / Web] --> CDN[CDN<br/>images, JS, CSS]
+    U --> LB[Load Balancer]
+    LB --> API[API Servers]
+    API --> CACHE[(Redis<br/>timeline cache)]
+    API --> DB[(SQL DB<br/>users, tweets)]
+    API --> Q[(Queue<br/>fanout jobs)]
+    Q --> FW[Fanout Workers]
+    FW --> CACHE
+    API --> S3[(Object Store<br/>images, videos)]
+    S3 --> CDN
+```
+
+### Key decisions
+
+1. **Tweet storage** — SQL (Postgres) sharded by `user_id`. Append-only data.
+2. **Timeline reads** — way more reads than writes. Pre-compute timelines into Redis.
+3. **Fanout on write** — when Alice tweets, push tweet ID into all her followers' Redis timelines via the queue.
+4. **Celebrity edge case** — Bieber has 100M followers. Hybrid: normal users use fanout-on-write; celebrities use fanout-on-read.
+5. **Media** — never store blobs in the DB. Use S3-style object storage + CDN.
+
+---
+
+## 14. Deep-Dive: Databases — Which One When?
+
+A practical framework. **Pick by question, not by hype.**
+
+```mermaid
+flowchart TD
+    Q1{Need ACID transactions<br/>across multiple records?}
+    Q1 -->|Yes| SQL[Relational SQL<br/>Postgres / MySQL]
+    Q1 -->|No| Q2{Workload shape?}
+    Q2 -->|Key-value lookup| KV[Redis / DynamoDB]
+    Q2 -->|Document objects| DOC[MongoDB]
+    Q2 -->|Massive write throughput| WC[Cassandra / ScyllaDB]
+    Q2 -->|Connected/relationship data| GR[Neo4j]
+    Q2 -->|Full-text search| FT[Elasticsearch / OpenSearch]
+    Q2 -->|Time-series metrics| TS[InfluxDB / TimescaleDB]
+    Q2 -->|Analytics / OLAP| AN[ClickHouse / BigQuery / Snowflake]
+```
+
+### ACID vs BASE
+
+| Property | Means | Where |
+|---|---|---|
+| **A**tomicity | All or nothing | SQL |
+| **C**onsistency | Constraints always hold | SQL |
+| **I**solation | Concurrent txns don't interfere | SQL |
+| **D**urability | Once committed, persists | SQL |
+| **B**asically **A**vailable, **S**oft state, **E**ventually consistent | Trade strict for scale | NoSQL |
+
+### Indexes — the most common database lever
+
+An **index** is a sorted lookup structure (B-tree). Without one, a query scans every row.
+
+```
+SELECT * FROM users WHERE email = 'alice@x.com';
+
+Without index → scan all 10,000,000 rows
+With index on email → ~20 lookups (log₂(10M) ≈ 23)
+```
+
+**Cost:** indexes slow down writes (must maintain the structure) and use disk. Index columns you filter or sort by — not every column.
+
+### Transactions & Isolation Levels
+
+Two users buy the last item in stock at the same time. What happens?
+
+| Level | Allows |
+|---|---|
+| **Read Uncommitted** | Dirty reads (you see another txn's uncommitted changes) |
+| **Read Committed** | Only committed data — but reads can be inconsistent within a txn |
+| **Repeatable Read** | Same row reads same value within a txn |
+| **Serializable** | Acts as if txns ran one at a time — safest, slowest |
+
+> **Default in Postgres:** Read Committed. **Default in MySQL:** Repeatable Read.
+
+---
+
+## 15. Deep-Dive: Distributed Systems Fundamentals
+
+### Consensus — getting nodes to agree
+
+If 5 servers each hold a copy of your data, who decides what the "real" value is when they disagree?
+
+**Algorithms:** Raft (used by etcd, Consul, CockroachDB), Paxos (Google Chubby), ZooKeeper Atomic Broadcast.
+
+**Quorum rule of thumb:** majority wins. With 5 nodes, you need at least 3 to agree → can tolerate 2 failures.
+
+```mermaid
+flowchart LR
+    L[Leader] -->|propose value| F1[Follower 1]
+    L --> F2[Follower 2]
+    L --> F3[Follower 3]
+    L --> F4[Follower 4]
+    F1 -->|ack| L
+    F2 -->|ack| L
+    F3 -.no ack.-> L
+    F4 -.no ack.-> L
+    L -->|3 of 5 acked → commit| Done((Committed))
+```
+
+### Eventual Consistency
+
+In an AP system, after a write you may briefly read stale data — but **eventually**, all replicas converge. This is fine for a tweet timeline; not fine for a bank balance.
+
+### Idempotency — the magic word for retries
+
+An operation is **idempotent** if running it twice has the same effect as running it once.
+
+- `SET balance = 100` → idempotent (replaying is safe)
+- `balance = balance + 10` → **not** idempotent (replay = double charge!)
+
+In distributed systems, networks fail and retries happen. **Always design APIs to be idempotent** — usually by accepting an `Idempotency-Key` header so the server can detect duplicates.
+
+### The Two Generals Problem
+
+Two armies must coordinate an attack via messengers, but messengers can be captured. **It's mathematically impossible to guarantee both armies attack at the same time.**
+
+This is why distributed transactions across services are hard, and why patterns like **Saga** (a series of local transactions with compensating actions) exist instead of distributed 2-phase commits.
+
+### Failure Modes to Always Consider
+
+| Failure | Example | Mitigation |
+|---|---|---|
+| **Crash failure** | Process dies | Restart, replicas |
+| **Omission failure** | Message lost | Retries, acks |
+| **Timing failure** | Slow response | Timeouts, circuit breakers |
+| **Byzantine failure** | Node lies / corrupted | Cryptographic verification (rare in trusted networks) |
+
+### Circuit Breakers
+
+When a downstream service is slow or failing, don't keep hammering it. Trip a "breaker" and fail fast.
+
+```mermaid
+stateDiagram-v2
+    [*] --> Closed
+    Closed --> Open: failures exceed threshold
+    Open --> HalfOpen: timeout elapsed
+    HalfOpen --> Closed: test request succeeds
+    HalfOpen --> Open: test request fails
+```
+
+**Library examples:** Netflix Hystrix (deprecated), Resilience4j, Polly (.NET), Istio service-mesh defaults.
+
+### Observability — the 3 pillars
+
+You can't fix what you can't see. Production systems need:
+
+1. **Metrics** — numbers over time (CPU, QPS, error rate). Tools: Prometheus, Datadog.
+2. **Logs** — text records of events. Tools: ELK, Loki, Splunk.
+3. **Traces** — full lifecycle of one request across services. Tools: Jaeger, Zipkin, OpenTelemetry.
+
+> **Rule of thumb:** if you can't draw a flame graph of a single request through your system, you don't have observability — you have hopes.
+
+---
+
+## 16. How to Tackle a System Design Interview
+
+Use this 6-step framework every time:
+
+```mermaid
+flowchart LR
+    A[1. Clarify<br/>requirements] --> B[2. Estimate<br/>scale]
+    B --> C[3. Define<br/>API]
+    C --> D[4. High-level<br/>diagram]
+    D --> E[5. Deep-dive<br/>1–2 components]
+    E --> F[6. Trade-offs<br/>& bottlenecks]
+```
+
+1. **Clarify** (5 min): functional features? non-functional (users, RPS, data size)?
+2. **Estimate** (5 min): back-of-envelope. QPS, storage, bandwidth.
+3. **API** (5 min): `POST /tweet { text }`, `GET /timeline?user_id=…`
+4. **Diagram** (10 min): client → LB → app → cache → DB → queue → workers
+5. **Deep-dive** (15 min): DB schema. Caching. Celebrity-fanout problem.
+6. **Trade-offs** (5 min): "If reads grow 10×, here's what breaks first…"
+
+> **Interviewers grade your reasoning, not your final diagram.** Talk through trade-offs out loud.
+
+---
+
+## 17. Recommended Learning Resources
+
+### Free
+- **The System Design Primer** (GitHub: `donnemartin/system-design-primer`)
+- **High Scalability** blog — case studies of Netflix, Instagram, Discord
+
+### YouTube channels (search by name)
+- **ByteByteGo** — Alex Xu, crisp 5–15 min visuals
+- **Gaurav Sen** — long-form interview walkthroughs
+- **Hussein Nasser** — DB / networking deep dives
+- **Tech Dummies** — case studies (WhatsApp, Uber, Netflix)
+
+### Books
+- *System Design Interview* — Alex Xu (Vol 1 & 2)
+- *Designing Data-Intensive Applications* — Martin Kleppmann (the bible)
+
+### Practice
+- **excalidraw.com** — free whiteboard
+- Design one a week: Twitter, Uber, WhatsApp, Netflix, Dropbox, TinyURL, Tinder, Yelp, Instagram
+
+---
+
+## 18. 8-Week Learning Plan
+
+| Week | Focus |
+|---|---|
+| 1 | Sections 1–4. Build a tiny client–server app. |
+| 2 | Sections 5–7. Spin up a load balancer + 2 servers locally with Docker. |
+| 3 | Section 8. Add Redis caching to a project. |
+| 4 | Sections 9–10. Read 5 case studies on High Scalability. |
+| 5 | Section 11. Refactor a project from monolith → 2 services. |
+| 6 | Sections 12, 14, 15. Read CAP chapter in *Designing Data-Intensive Applications*. |
+| 7 | Section 13. Design Twitter on paper. Then design Uber. |
+| 8 | Mock interviews — pramp.com or with a friend. |
+
+---
+
+### One last thing
+
+System design isn't memorization — it's **pattern recognition**. The same ~10 building blocks (LB, cache, queue, shard, replica, CDN, worker, gateway, DB, service-mesh) get rearranged for every problem. After designing 10 systems, the 11th feels familiar.
+
+**Start small. Draw boxes. Talk about trade-offs out loud. You'll get there.** 🚀
+</script>
+
+<script>
+  // Render markdown -> HTML, then run Mermaid on .mermaid blocks.
+  const src = document.getElementById("markdown-source").textContent;
+
+  // Configure marked to emit <pre class="mermaid"> for ```mermaid blocks
+  marked.use({
+    renderer: {
+      code(code, lang) {
+        if (lang === "mermaid") {
+          return `<div class="mermaid">${code}</div>`;
+        }
+        return `<pre><code class="language-${lang || ""}">${
+          code.replace(/&/g, "&amp;").replace(/</g, "&lt;")
+        }</code></pre>`;
+      },
+    },
+    gfm: true,
+    breaks: false,
+  });
+
+  document.getElementById("content").innerHTML = marked.parse(src);
+
+  // Build TOC from H2s
+  const toc = document.getElementById("toc-list");
+  document.querySelectorAll("#content h2").forEach((h, i) => {
+    const id = "sec-" + i;
+    h.id = id;
+    const li = document.createElement("li");
+    li.innerHTML = `<a href="#${id}">${h.textContent.replace(/^\d+\.\s*/, "")}</a>`;
+    toc.appendChild(li);
+  });
+
+  // Render mermaid after content is in the DOM
+  function runMermaid() {
+    if (window.__mermaid) {
+      window.__mermaid.run({ querySelector: ".mermaid" });
+    } else {
+      setTimeout(runMermaid, 100);
+    }
+  }
+  runMermaid();
+</script>
+</body>
+</html>
