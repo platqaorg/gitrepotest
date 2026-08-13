@@ -3,7 +3,7 @@
     "job_name": "GitPL_Task",
     "note": "",
     "parameters": {
-        "enabled": true,
+        "enabled": false,
         "include_external_urls": true,
         "job_type": "standard",
         "notification": {
@@ -16,7 +16,7 @@
         },
         "pipeline_parameters": {},
         "pipeline_path": "GitPL",
-        "snaplex_path": "GroundSnaplex"
+        "snaplex_path": null
     },
     "schedule": {},
     "trigger": {},
