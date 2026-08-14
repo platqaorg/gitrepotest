@@ -61,7 +61,7 @@
                 "value": []
             },
             "suspendable": {
-                "value": false
+                "value": true
             },
             "tags": {
                 "value": []
@@ -139,10 +139,10 @@
                 },
                 "settings": {
                     "execution_mode": {
-                        "value": "Validate & Execute"
+                        "value": "Execute only"
                     },
                     "nullSafeAccess": {
-                        "value": false
+                        "value": true
                     },
                     "omitExpressionIfMissing": {
                         "value": false
