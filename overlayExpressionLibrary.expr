@@ -1,0 +1,13 @@
+{
+	"type":"browsers",
+	"newValue":"value in Overlay",
+	"accountName": "Test",
+	"static_mappings": {
+		"id":_parameter,
+		"msg": "message from overlay expression",
+		"refType":__root__.type,
+		"refParentType":__parent__.type,
+		get_path: () => __path__,
+    	get_name: () => __name__,
+	}
+}
