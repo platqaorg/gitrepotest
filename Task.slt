@@ -1,0 +1,16 @@
+{
+    "job_class": "PipelineJob",
+    "job_name": "Task",
+    "note": "",
+    "parameters": {
+        "enabled": true,
+        "include_external_urls": true,
+        "job_type": "standard",
+        "pipeline_parameters": {},
+        "pipeline_path": "taskpipeline",
+        "snaplex_path": "DataGroundPlex"
+    },
+    "schedule": {},
+    "trigger": {},
+    "trigger_type": "ScheduleTrigger"
+}
