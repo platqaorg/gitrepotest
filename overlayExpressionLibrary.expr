@@ -1,0 +1,14 @@
+{
+	"type":"browsers",
+	"newValue":"value in Overlay Expression",
+	"accountName": "Test",
+	"state" : "True"
+	"static_mappings": {
+		"id":_parameter,
+		"msg": "message from overlayexpression lib",
+		"refType":__root__.type,
+		"refParentType":__parent__.type,
+		get_path: () => __path__,
+    	get_name: () => __na__,
+	}
+}
