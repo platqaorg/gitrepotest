@@ -3,12 +3,12 @@
     "job_name": "Task",
     "note": "",
     "parameters": {
-        "enabled": true,
+        "enabled": false,
         "include_external_urls": true,
         "job_type": "standard",
         "pipeline_parameters": {},
         "pipeline_path": "taskpipeline",
-        "snaplex_path": "DataGroundPlex"
+        "snaplex_path": null
     },
     "schedule": {},
     "trigger": {},
