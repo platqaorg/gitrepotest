@@ -6,9 +6,17 @@
         "enabled": false,
         "include_external_urls": true,
         "job_type": "standard",
+        "notification": {
+            "slack_recipients": [
+                {
+                    "channel": [],
+                    "user": []
+                }
+            ]
+        },
         "pipeline_parameters": {},
-        "pipeline_path": "taskpipeline",
-        "snaplex_path": null
+        "pipeline_path": null,
+        "snaplex_path": "NodeActivities"
     },
     "schedule": {},
     "trigger": {},
