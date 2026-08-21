@@ -1,0 +1,34 @@
+{
+    "job_class": "PipelineJob",
+    "job_name": "Task",
+    "note": "",
+    "parameters": {
+        "enabled": true,
+        "execution_timeout": 20,
+        "include_external_urls": true,
+        "job_type": "standard",
+        "notification": {
+            "recipients": "pavanv@snaplogic.com",
+            "slack_recipients": [
+                {
+                    "channel": [],
+                    "user": [
+                        {
+                            "slack_id": "U0859JT46C9",
+                            "username": "pavanv"
+                        }
+                    ]
+                }
+            ],
+            "states": [
+                "Completed"
+            ]
+        },
+        "pipeline_parameters": {},
+        "pipeline_path": "PA new pipeline 1",
+        "snaplex_path": "CloudPlex"
+    },
+    "schedule": {},
+    "trigger": {},
+    "trigger_type": "ScheduleTrigger"
+}
