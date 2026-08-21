@@ -18,7 +18,7 @@
         },
         "pipeline_parameters": {},
         "pipeline_path": "NewPL",
-        "snaplex_path": "GroundSnaplex",
+        "snaplex_path": "AutoSync",
         "watchdog": {
             "instances": 1,
             "per": "PLEX"
