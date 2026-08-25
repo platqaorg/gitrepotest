@@ -18,13 +18,13 @@
                 "expression": false,
                 "fp": "784a35a7d774c15fed2c19acfbacf0803952c866c106c7c1d7e70a06f0418532",
                 "key": "account-cloud-managed-5806521b242e3f794b90c16c-2016-10-18T16:49:09-913501",
-                "sym_iv": "hmgPjFTmcglKm7CS7C0yXg==",
-                "sym_key": "cfoAKCttw6OpTcA0pO1GcPzUJCjQDnFxb5nkiKSyoTNZYGDws5o8c+fnn46ia5NhWahXE5pBAICwnrIoy7Yp/zEqFBxiCp2y9VvUE5hEABliUmkqbhDZuD8ALS0LLmhd1Q+nOxQv6CJHVQNJKl2VFB/SnzecZWrLlU7ZLeLsQWOYBjaEZeovoz2phxA+7eI2uY0eH0jglG4OLxZ70unT4imA7bROiw/RxNunXikOgELIii74D7p9h0m/yyt/Pl/guyFwODB7K8I7rXbVtnBIGT6OsiHJLcsPmdF5A6nFpj053RnwoL+sSseX44OZ1cPlOhEaHxilYWvjyVhU63yMog==",
-                "value": "ZQOG26lyaHVaTnUIEuQoNg=="
+                "sym_iv": "Bh9wr3gxyCLL5XnluczvFw==",
+                "sym_key": "oMPMq25GcPvW2w+mxFz6Ell1oRzBw/rIi49+vpaIZlM3Fqcg5lvkNvB1SUk7CXABQtiX/yskf6J4gnWb5H3EOfYM5VrusMXXJcCJQAkJ8fq/tDC5xioozgQ4bGAGSfrqVqmysf8FMyYmC+APojQAWANS8IuqxEH27fQIadsl8nEA6Bu1utD9CLEz++pXAnPbF6HPkxg9Wwh6Yi3oWQbjtxBM/GPBm1UDe/Vttjeq+uyOv4hSqEbIpv2dxrR9l90pnAMW6zu+Zwy4DS28e/Aiid+9MxcR7vr/lQXFLNFlRbnU9GlglOS/HTgxzIb8sazHeUQMv1ZNkG2uC9VCdC7P7w==",
+                "value": "LSsMTUL8GB9YwISWxZP3eA=="
             },
             "username": {
                 "expression": false,
-                "value": "testuser"
+                "value": "newusername"
             }
         },
         "view_serial": 100
