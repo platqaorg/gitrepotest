@@ -1,0 +1,43 @@
+{
+    "class_id": "com-snaplogic-snaps-apisuite-accounts-digestauthaccount",
+    "class_version": 1,
+    "migration_metadata": {
+        "source_org": "snaplogic"
+    },
+    "property_map": {
+        "info": {
+            "label": {
+                "value": "test"
+            },
+            "notes": {
+                "value": null
+            }
+        },
+        "settings": {
+            "cnonce": {
+                "expression": false,
+                "value": null
+            },
+            "password": {
+                "expression": false,
+                "fp": "7a6c24c23186226dee1a62f9eeef2c75c37a460983259cdc6b06604c6323b2b9",
+                "key": "account-cloud-managed-699dd667fb1685c323a55653-2026-02-24T16:48:56-013594+00:00",
+                "sym_iv": "JYIWQ1V0Tgh01CryTRLO3Q==",
+                "sym_key": "LAPEC//Oq5ekWbXW4zYhYh3VjpC4IDrJnHKd4tEvuyJ/Sbllb0eJnw9GFccGIdtA5Pro0xX+8mg/MfcjPvhLuItsqPwqmbbbLvMZeoxSljJbfj609tbU6fAuXJU5p5KFUALw9VdVbU4Nc1zTnzZIca1LY/xTzoTq+Zm9CwRt+X9N0hXycM1Lqj6OyhsqeSrHvS3748lrPpmbzyqe3BMlTKSObc36CVlt7hxKZWrs6j7Cjt1LMW2mAN5wEx3w+JO3h2nIzDDum6dmEMLpvCqMGqfCOFMSkSmmjBUqXGBKyoKZwaQ+XfVbZTr3NEyKf43mY+DLvQdUSuKPFsJa3w3AEw==",
+                "value": "ZkQT4lzZr/J3oaTJgdUeiQ=="
+            },
+            "preemptive": {
+                "value": false
+            },
+            "realm": {
+                "expression": false,
+                "value": null
+            },
+            "username": {
+                "expression": false,
+                "value": "admin@snaplogic.com"
+            }
+        },
+        "view_serial": 100
+    }
+}
