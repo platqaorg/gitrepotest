@@ -1,0 +1,178 @@
+{
+    tests: [
+        {
+            description: 'Basic array matching 18',
+            expr: (doc) => match doc {
+                [] => 'empty',
+                [one] => 'one element: ' + one,
+                [head, ...] => 'head: ' + head
+            },
+            doc: [
+                [],
+                ['Hello, World'],
+                [1, 2, 3]
+            ],
+            result: [
+                'empty',
+                'one element: Hello, World',
+                'head: 1'
+            ]
+        },
+        {
+            description: 'Basic array matching 2',
+            expr: (doc) => match doc {
+                [..., tail] => 'tail: ' + tail
+            },
+            doc: [
+                ['Hello, World'],
+                [1, 2, 3]
+            ],
+            result: [
+                'tail: Hello, World',
+                'tail: 3'
+            ]
+        },
+        {
+            description: 'Match last two elements',
+            expr: (doc) => match doc {
+                [..., penultimate, tail] => penultimate + '; tail: ' + tail
+            },
+            doc: [
+                [0],
+                ['Hello, World', 'Goodbye, World'],
+                [1, 2, 3]
+            ]
+        },
+        {
+            description: 'Basic array matching 3',
+            expr: (doc) => match doc {
+                [..., x if x.length > 3, ...] => 'long: ' + x
+            },
+            doc: [
+                ['a', 'Hello, World', 'b'],
+            ],
+            result: [
+                'long: Hello, World'
+            ]
+        },
+        {
+            description: 'Capture remaining items',
+            expr: (doc) => match doc {
+                [head, ...tail] => 'head: ' + head + '; tail length: ' + tail.length
+            },
+            doc: [
+                [],
+                [1],
+                [1, 2],
+                [1, 2, 3, 4, 5]
+            ],
+            result: [
+                null,
+                'head: 1; tail length: 0',
+                'head: 1; tail length: 1',
+                'head: 1; tail length: 4'
+            ]
+        },
+        {
+            description: 'Capture leading items',
+            expr: (doc) => match doc {
+                [...prefix, tail] => 'prefix length: ' + prefix.length + '; tail: ' + tail
+            },
+            doc: [
+                [],
+                [1],
+                [1, 2],
+                [1, 2, 3, 4, 5]
+            ],
+            result: [
+                null,
+                'prefix length: 0; tail: 1',
+                'prefix length: 1; tail: 2',
+                'prefix length: 4; tail: 5'
+            ]
+        },
+        {
+            description: 'Capture surrounding',
+            expr: (doc) => match doc {
+                [...left, '|', ...right] if left.length > 0 => [left, right]
+            },
+            doc: [
+                ['|'],
+                ['abc', '|'],
+                ['|', 'def'],
+                ['abc', '123', '|', 'def'],
+            ],
+            result: [
+                null,
+                [['abc'], []],
+                null,
+                [['abc', '123'], ['def']]
+            ]
+        },
+        {
+            description: 'Find object',
+            expr: (doc) => match doc {
+                [..., {type: 'Home', value}, ...] => 'Home phone: ' + value
+            },
+            doc: [
+                [],
+                [{type: 'Work', value: '123-456-7890'}],
+                [{type: 'Work', value: '123-456-7890'}, {type: 'Home', value: '321-456-7890'}]
+            ],
+            result: [
+                null,
+                null,
+                'Home phone: 321-456-7890'
+            ]
+        },
+        {
+            description: 'Find truthy',
+            expr: (doc) => match doc {
+                [..., value!, ...] => 'value: ' + value
+            },
+            doc: [
+                [null]
+            ],
+            result: [
+                null,
+                null,
+                'value: 2'
+            ]
+        },
+        {
+            description: 'Unused variable',
+            expr: (doc) => match doc {
+                [key, _value] => key
+            },
+            doc: [
+                null,
+                ['abc'],
+                ['k', 'v']
+            ],
+            result: [
+                null,
+                null,
+                'k'
+            ]
+        },
+        {
+            description: 'nested matches with non functional method calls',
+            expr: (doc) => match match doc.pop() {
+                x if x == 'f' => doc.pop(),
+                'moo' => doc.pop(), 3 => 4,
+                'loo' => 1} { x if x == 'p' => doc,
+                4 => doc.pop()
+            },
+            doc: [
+                ['j', 'o', 'l', 'p', 'f'],
+                [1, 2, 3],
+                []
+            ],
+            result: [
+                ['j', 'o', 'l'],
+                2,
+                null
+            ]
+        }
+    ]
+}
