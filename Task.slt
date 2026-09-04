@@ -3,7 +3,7 @@
     "job_name": "Task",
     "note": "",
     "parameters": {
-        "enabled": true,
+        "enabled": false,
         "execution_timeout": 20,
         "include_external_urls": true,
         "job_type": "standard",
@@ -26,7 +26,7 @@
         },
         "pipeline_parameters": {},
         "pipeline_path": "PA new pipeline 1",
-        "snaplex_path": "CloudPlex"
+        "snaplex_path": null
     },
     "schedule": {},
     "trigger": {},
