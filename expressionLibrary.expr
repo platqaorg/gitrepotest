@@ -1,0 +1,100 @@
+/*
+Following is the explanation of the library:
+__path__ : will return the path of the expression library where it stored
+__name__ : will return the name of the expression library or the alias name used in pipeline
+__root__ : it will return the root element so we can go through the top to bottom structure in finding a element
+__parent__: will return the parent of the given element. You cannot call the parent
+               or root operations in the same element when it is processing
+In-order to read a json array we need to use json-path eg: jsonPath(__root__.stuff.onetype, '$[*].id')
+You can create dynamic query using the epxression library - eg: dynamicQueryTest --> sql in same library
+*/
+
+{
+	"type":"browsers",
+	"oldValue" : "oldValue in Overlay",
+	"static_mappings": {
+		"id":"test",
+		get_path: () => __path__,
+    	get_name: () => __name__,
+    	get_param: () => _parameter,
+    	"foo" : "FOO",
+        "bar" : "BAR"
+	},
+	"do_static_mappings": (x) => x.mapKeys(
+    	(v, k) => this.static_mappings.hasOwnProperty(k) ? this.static_mappings[k] : k),
+    "expr_mappings": {
+        "foo" : (v) => parseInt(v),
+        "bar" : (v) => parseFloat(v)
+    },
+    "do_expr_mappings": (x) => x.mapValues(
+    	(v, k) => this.expr_mappings.hasOwnProperty(k) ? (this.expr_mappings[k])(v) : v),
+	k1: 'foo',
+	k2: {
+     k3: __root__.k1
+    },
+	"nested_level": {
+		k1: 'key1',
+		k2: {
+			k30: 'key30',
+			k3: {
+				k4: __parent__.k30,
+				k5: __root__.k1,
+				k6: __root__.static_mappings.id
+			}
+		}
+	},
+	"stuff": {
+		"othertype":
+			{
+				"id":2,
+				"company":"ACME"
+			},
+        "onetype": [
+            {
+            	"id":1,
+            	"name":"John Doe",
+            	"parentArray": jsonPath(__parent__, '$.othertype.company')
+            },
+            {
+            	"id":2,
+            	"name":"Don Joeh"
+            }
+        ]
+    },
+    "otherstuff": {
+        "thing": [
+        	[
+        		1,42
+        	],
+        	[
+        		2,2
+        	]
+        ]
+     },
+     "20" : "LIMIT 20",
+     "10" : "LIMIT 10",
+     "array":__root__.stuff.onetype,
+     "arrayMapId":jsonPath(__root__.stuff.onetype, '$[*].id'),
+     "arrayparent":__root__.stuff.onetype[0].parentArray,
+     "queries" : {
+		"dynamicQueryTest" : {
+			"sql" : (x) => "select * from " + x.tableName + " where " + x.id +" IS NOT NULL AND " + x.Phone +" IS NOT NULL AND " + x.State + " = '" + this.executionModes[x.executionMode].states[x.stateValue]+ "' " + this.executionModes[x.executionMode].limitCondition,
+			"executionModes" : {
+				"MAIN" : {
+					"limitCondition" : __root__.20,
+					"states": {
+						"New York":"NY",
+						"Oklahoma":"OK",
+						"Pennsylvania" : "PA"
+					}
+				},
+				"DEV" : {
+					"limitCondition" : __root__.10,
+					"states": {
+						"New York":"NY"
+					}
+				}
+			}
+		}
+	}
+}
