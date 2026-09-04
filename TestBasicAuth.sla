@@ -18,13 +18,13 @@
                 "expression": false,
                 "fp": "78dec13fda1541f0a6b8b1a1c8e1923939e0dfb342c94beb0cc3f480611fd661",
                 "key": "account-cloud-managed",
-                "sym_iv": "dViJgV7wuaHhH+dAJ4aC5Q==",
-                "sym_key": "mXOK1Vo6XgsSCcItuBFTmAfzAoH351piq/EJF6mGlf8hhbcKgcGVuzhTRifF+/NGZPHlgD3gRMhNyPrhWC1PH/zABvU5sb7kf0ij9Xc2jNtK3vc3SgbcEYvFAy+A+rCeGapQ1d1jO/jEP4+Q+NtgDUvJa7KWaMqXnzUyfdU6WRfXUwf1yDdtsZAo45amsJQ6T0Qg2TUIuEdEoa0XNJY/7CDXJesZQTnhzMay0wLmv8KfU6LRGxpZYlaqU1VuOo6qhQMMgRww5kvi9VwHA/QlsBbL+6KSMjAhl/oYxy6a5elaM8cghYDQAK0mdVlF/ORbjdWs/zThHO878aW7376kYA==",
-                "value": "v6iVx5GJ8FIW0IhFmMZd2g=="
+                "sym_iv": "GqVRfVpX/o8cqGQ0f4ovwQ==",
+                "sym_key": "YV1Nwp2WWqANnIyOPFl8Uj52rfTWpUazmhzUmHN2uO6TNo+pVpC2fo3ak7zj976mdQ7ZMWXPqWUgEUk6psWEaIh4/To5YxFRc0d2ihS0CrEXBESfro4x0exVoPUOWq9k3wYbYszQ+7ipf/Vmvq1tm3X0Ya9NnxAOJJz65Jp9ajPvFrujiGarViU/IC9X82W5wEcT+R/fChz5c/saUhslfd7ho7xDKLDECy7Zl2bTferxr1e8u0f41rBcwqyBU5LQ7AD/e471AT9b/5U3jHN5i3jejxsh3bik0b6i8NCRh9VHalqspZ5rCfy35pvFarAYp2wmQIGPWdWcUnsZ5KA0ug==",
+                "value": "+NoDQLhA25bO88avm5E+CA=="
             },
             "username": {
                 "expression": false,
-                "value": "bnath@snaplogic.com"
+                "value": "updateduser1"
             }
         },
         "view_serial": 100
