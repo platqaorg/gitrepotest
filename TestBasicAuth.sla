@@ -2,7 +2,7 @@
     "class_id": "com-snaplogic-snaps-apisuite-accounts-basicauthaccount",
     "class_version": 1,
     "migration_metadata": {
-        "source_org": "automation"
+        "source_org": "Automation_backup"
     },
     "property_map": {
         "info": {
@@ -16,15 +16,15 @@
         "settings": {
             "password": {
                 "expression": false,
-                "fp": "78dec13fda1541f0a6b8b1a1c8e1923939e0dfb342c94beb0cc3f480611fd661",
-                "key": "account-cloud-managed",
-                "sym_iv": "WL51ohF1hGr45OWTVzRkiA==",
-                "sym_key": "oxo8kiaiJ5Sv6sjl7TETTCiXllFHvoFgCmQHgnGucXA4V1tVBz3qsNzZVoFd6lelsXTabV8TFQ28yfBAGNHO7FtG6n5ZUrDXMjxjsWzVn0MlZxAkF3gNYaG2Cch7MW79Lhq457SULCgA6fPgt8xlru9U+uogLCezDpfTT1zzrtMb+gUSuk89dA2mfTvSoL26q2Z2vjpojv4g5shpqaxflrS4SQJhplEI9GaiBOwySIZbzWqDz2Bv2dcL9GX9gQcywnKFCbWvon16C3WJW1GBhSS0wjq6MhH+ffOoFgjhp5UWIoysdkJBQp4GCW8iCGoS7beZepLvKhKXvV04+8xzCw==",
-                "value": "0I8xTpX2B6f4oglwYSnTmGBUuT/AIXLErhc3sDgjjz8="
+                "fp": "2707a830b763a160bf8709b973d4d052ec5917dce95b705f360326eefcc0ac85",
+                "key": "account-cloud-managed-64c9964297192ec91d81d873-2023-08-01T23:33:24-987285+00:00",
+                "sym_iv": "KLKryh75iT/aQ42ru6guGw==",
+                "sym_key": "ZBQEbafU5UKyEcjolZJM2XkKJbsqT+GGfhA/iKa6vwXO7UdQqxYOxvSOuZA4gND2LfLR9VdnyHX2FKdgGvZMV7kAEA16Cn53A+q/eD8LLelcW0D56Zi+wPuN3b4vcv//CKuLJ2hnzdEXUAkFMSrxQDI/CZOOH3JkN3dBWcwqFFJiUsdU7cAzDquagFueAreIpDoVrNTZIgnlgnRmMycDy2yZXReyvuq+FJ0ihO+w2PRK3DGXPXiZ/jNjMJnRflMVczEfHM8oQ7IY/VFDOX5zvk5z4V7Ij0LTaNVLNVFmi6BiMglnpruDgnBMacEZq1Nra0izvmgrozOJPY3OkXx7sQ==",
+                "value": "CdyE/vWA6hFYDbbwNiDDuA=="
             },
             "username": {
                 "expression": false,
-                "value": "updateduser1_1788528589507"
+                "value": "user1"
             }
         },
         "view_serial": 100
