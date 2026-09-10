@@ -1,0 +1,32 @@
+{
+    "class_id": "com-snaplogic-snaps-apisuite-accounts-basicauthaccount",
+    "class_version": 1,
+    "migration_metadata": {
+        "source_org": "Automation_backup"
+    },
+    "property_map": {
+        "info": {
+            "label": {
+                "value": "BasicAuth_1789018888636"
+            },
+            "notes": {
+                "value": null
+            }
+        },
+        "settings": {
+            "password": {
+                "expression": false,
+                "fp": "2707a830b763a160bf8709b973d4d052ec5917dce95b705f360326eefcc0ac85",
+                "key": "account-cloud-managed-64c9964297192ec91d81d873-2023-08-01T23:33:24-987285+00:00",
+                "sym_iv": "Zxi8wjxxJkJNTSDvCIu/5w==",
+                "sym_key": "up4+Lh+3lbYz2ot4T6vrIj1AgdKrEGlpcK/0/fAp7DSk9LhVPGAghG2qAeHvZyyulYDnWDPDc7zQGmyUUmL+zDpbmGHuWUPr7n+VgwBpRUp9P9YVnvYdFiqsgXQGVnRfYxE3AH2lddyWrlqb/V7G0YGHhxlFlYGCc82+bUozLO2a/m6hNIKDA8g1FeNYZOb5aF4WnQUigo5m9Fe4qHxzYRyeIv2O79uArEC9g0Lu3Td+a4uNIyF1mUPkDjHdL6hjVtY9mfD9z1wogxCXBqzRr04ZIQC/G48h0E/MGlsaQntmZOBtO+G4EXC6na3la/z3LS/e8mfA61UT5Gsbozzt9A==",
+                "value": "FTnREuqh0camSqouffdc+A=="
+            },
+            "username": {
+                "expression": false,
+                "value": "testuser"
+            }
+        },
+        "view_serial": 100
+    }
+}
