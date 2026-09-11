@@ -25,7 +25,7 @@
             ]
         },
         "pipeline_parameters": {},
-        "pipeline_path": "PA new pipeline 1",
+        "pipeline_path": null,
         "snaplex_path": null
     },
     "schedule": {},
