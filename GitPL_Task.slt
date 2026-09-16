@@ -1,6 +1,6 @@
 {
     "job_class": "PipelineJob",
-    "job_name": "GitPL_Task",
+    "job_name": "GitPL_TaskNew",
     "note": "",
     "parameters": {
         "enabled": true,
