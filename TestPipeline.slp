@@ -10,11 +10,11 @@
         },
         "info": {
             "author": {
-                "value": "platformqagit1+gitbasc7@snaplogicdev.net"
+                "value": "platformqagit1+gitbasc5@snaplogicdev.net"
             },
             "label": {},
             "notes": {
-                "value": "conflict note from project 1 - 3qubvjnqggq_1790187337225"
+                "value": "conflict note from project 1"
             },
             "pipeline_doc_uri": {
                 "value": null
