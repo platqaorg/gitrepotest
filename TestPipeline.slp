@@ -10,7 +10,7 @@
         },
         "info": {
             "author": {
-                "value": "platformqagit1+gitbasc6@snaplogicdev.net"
+                "value": "bnath@snaplogic.com"
             },
             "label": {},
             "notes": {
@@ -89,8 +89,8 @@
         "detail_map": {
             "11111111-1111-1111-1111-000000000000": {
                 "error": {},
-                "grid_x_int": 2,
-                "grid_y_int": 1,
+                "grid_x_int": 4,
+                "grid_y_int": 2,
                 "input": {},
                 "output": {},
                 "rot_int": 0,
