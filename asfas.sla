@@ -1,0 +1,82 @@
+{
+    "class_id": "com-snaplogic-snaps-s3-s3account",
+    "class_version": 1,
+    "migration_metadata": {
+        "source_org": "Automation"
+    },
+    "property_map": {
+        "info": {
+            "label": {
+                "value": "asfas"
+            },
+            "notes": {
+                "value": null
+            }
+        },
+        "settings": {
+            "accessKeyId": {
+                "expression": false,
+                "value": "asf"
+            },
+            "bucketValidation": {
+                "value": null
+            },
+            "crossAccountIAM": {
+                "value": {
+                    "arn": {
+                        "expression": false,
+                        "value": null
+                    },
+                    "externalID": {
+                        "expression": false,
+                        "fp": "b307ceaf826512fadeef431570e3ccba2defa0bdbe638dc0d1c2c735d7dfb507",
+                        "key": "account-cloud-managed-6abe9590af38d8de1108b92a-2026-10-01T17:17:24-210435+00:00",
+                        "sym_iv": "aX1vP8xdpN8nbKc2MxAXog==",
+                        "sym_key": "ck66dW+TGfft3h8zJF20w9TDfBuXMcHnT8nphLVZhTScFb9CFXY+brhCOBnrGd1/xA19FO8kjSk66t28ZYqCIH3Hp2/jja1kE+mGFU6tzkyjNTwpPjT+QLU0Db9mV2IglsWcYRcI5D6vEOKAFLUwKewuSf7h88dlTEDTzziwyPsl/DLsgW3AmNuZUxKY5lnyFMmK6ofR6H4QLHCs9ozyEUXM8qQRIwsN1GS7PuRU9GdE6S6uyPvSqRpnKCboQRZI4TaOz9HGDKeK9mvDzZ6kmTZCxNhIOBFQO8einVVGno3DBT1Wwy3kCP47w9s5gZZlp3mtWeOfTamdKhugJA64oA==",
+                        "value": "4K0CHXUFUcH3Nu4mvbfXPg=="
+                    }
+                }
+            },
+            "encryption": {
+                "value": {
+                    "encryptionType": {
+                        "expression": false,
+                        "value": "None"
+                    },
+                    "kmsKey": {
+                        "expression": false,
+                        "fp": "b307ceaf826512fadeef431570e3ccba2defa0bdbe638dc0d1c2c735d7dfb507",
+                        "key": "account-cloud-managed-6abe9590af38d8de1108b92a-2026-10-01T17:17:24-210435+00:00",
+                        "sym_iv": "Zmx3pBeZa46mBWN0BoEnCw==",
+                        "sym_key": "gtzmBVanVuKkZVFZCm52Q3dApRz1B+KuuOjWM9/hHs7BiuUge37k595TKfCse5zeyylCsW253thMJc+dH0YEkuZfcuqPhegvjvcqgAMlYAqc4m96d3yFSlvD+jdzG4lvMr07gT/Gfpn+WV0dou5LJuZsaOxAKFQVsXnlP9q5DiHZecETx2tRt9Ds6ZA7TBttIm76L/YiyyOBuah+rdVKKShcvEblCCWLFlxfoUzvXLEtQn+BgzkWxBRwdvoBKDxZkWF19DNqQuEl7glEpMfhXnq2vwyfoZo+2V4J9XehHW18MYUoCP5DvdoFGF8WHVhoSB6K02ozAsR6JTn03k2I4A==",
+                        "value": "7sxk9r8k/e8vTAiyl9K/Ow=="
+                    },
+                    "kmsRegion": {
+                        "expression": false,
+                        "value": null
+                    }
+                }
+            },
+            "iamRole": {
+                "value": false
+            },
+            "s3Endpoint": {
+                "expression": false,
+                "value": null
+            },
+            "secretKey": {
+                "expression": false,
+                "fp": "b307ceaf826512fadeef431570e3ccba2defa0bdbe638dc0d1c2c735d7dfb507",
+                "key": "account-cloud-managed-6abe9590af38d8de1108b92a-2026-10-01T17:17:24-210435+00:00",
+                "sym_iv": "m1SkYgUFOTboUaeuCkgDnQ==",
+                "sym_key": "SOPcv9YJc1Pswzq4GPamJstnuE3gzipf/5JowZVpQkIyABbL3wXbnbiqGz2Z7/AWinnmn5LTyvaoI9eXSIyDo6dzH9FW9IGWkRamegSKLEmbj1FvKeNWh8lYi0Y0jUfgfwuV8QZllv35Fppf2fozeEKh7jzX6iJ3YiR4kiasQ6OOglpYOfjNGVxrUHvjWti5L65pKLApF0mDowT2sj+V0ZjJGPtovkvD+7iUJ6a2NlLohWj74Tz66xb0E5SSOJmvdfzqVDU0NSyTqRhYQGr5x/AANFcUu1n7Vtiq9eRa2KpEcQNE3taiU5bY356Y/eiTRJKhg8Njo02o+/BHreGEKg==",
+                "value": "3ZzU5zSJK0r2vlgh6OP47A=="
+            },
+            "securityToken": {
+                "expression": false,
+                "value": "sdfsfds"
+            }
+        },
+        "view_serial": 100
+    }
+}
